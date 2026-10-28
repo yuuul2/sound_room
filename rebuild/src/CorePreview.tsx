@@ -229,7 +229,10 @@ function Core() {
     const result = audio.toggle();
     if (result === "missing")
       setMessage(
-        t("아직 연결된 음원이 없습니다.", "No audio source is connected yet."),
+        t(
+          "믹서에서 소리를 하나 이상 켜주세요.",
+          "Enable at least one sound in the mixer.",
+        ),
       );
     if (result === "loading")
       setMessage(
@@ -239,6 +242,18 @@ function Core() {
         ),
       );
   };
+  const listen = () => {
+    setScreen("player");
+    if (!audio.playing) play();
+  };
+  useEffect(() => {
+    if (audio.error)
+      setMessage(
+        en
+          ? "Audio could not be loaded or played. Check your connection and reopen the app."
+          : "음원을 불러오거나 재생하지 못했습니다. 연결 상태를 확인하고 앱을 다시 열어주세요.",
+      );
+  }, [audio.error, en]);
   const open = (i: number) => {
     setEditing(null);
     setSelected(i);
@@ -342,7 +357,7 @@ function Core() {
             <ScrollView contentContainerStyle={{ paddingBottom: 5 }}>
               <View
                 style={{
-                  height: Math.max(265, height * 0.34),
+                  height: Math.max(245, height * 0.32),
                   paddingHorizontal: 20,
                 }}
               >
@@ -465,7 +480,7 @@ function Core() {
                         key={name}
                         style={{
                           paddingHorizontal: 10,
-                          minHeight: 36,
+                          minHeight: 44,
                           justifyContent: "center",
                           borderRadius: 18,
                           backgroundColor:
@@ -497,7 +512,11 @@ function Core() {
                   <Pressable
                     accessibilityRole="button"
                     onPress={() => setScreen("explore")}
-                    style={{ minHeight: 44, justifyContent: "center" }}
+                    style={{
+                      minHeight: 44,
+                      justifyContent: "center",
+                      marginVertical: -7,
+                    }}
                   >
                     <Copy style={{ fontSize: 12, color: muted }}>
                       {t("전체보기", "View all")} ›
@@ -757,7 +776,7 @@ function Core() {
               <CTA
                 title={t("이 분위기로 재생하기", "Play this atmosphere")}
                 disabled={!enabled.some((v, i) => v && volumes[i] > 0)}
-                onPress={() => setScreen("player")}
+                onPress={listen}
               />
             </ScrollView>
           </>
@@ -766,15 +785,15 @@ function Core() {
           <>
             <ToneImage
               asset="backgrounds_covers_player_moon_ocean"
-              style={StyleSheet.absoluteFill}
+              style={[StyleSheet.absoluteFill, { top: -80, bottom: 80 }]}
             />
             <LinearGradient
               colors={
                 dark
-                  ? ["transparent", "transparent", "#42374e88", "#382f47"]
-                  : ["transparent", "transparent", "#8584bb88", "#797aaf"]
+                  ? ["transparent", "#26203330", "#42374eb8", "#382f47"]
+                  : ["transparent", "#34314f30", "#8584bbb8", "#797aaf"]
               }
-              locations={[0, 0.48, 0.76, 1]}
+              locations={[0, 0.42, 0.68, 0.9]}
               style={StyleSheet.absoluteFill}
             />
             <ScrollView
@@ -800,7 +819,14 @@ function Core() {
                   onPress={() => setSheet("save")}
                 />
               </View>
-              <View style={{ height: Math.max(280, height * 0.42) }} />
+              <View
+                style={{
+                  height: Math.max(
+                    175,
+                    height - insets.top - insets.bottom - 559,
+                  ),
+                }}
+              />
               <View
                 style={{ alignItems: "center", paddingHorizontal: 20, gap: 8 }}
               >
@@ -833,8 +859,8 @@ function Core() {
                 </Pressable>
                 <ToneImage
                   asset="player_waveform"
-                  fit="contain"
-                  style={{ width: "100%", height: 49 }}
+                  fit="cover"
+                  style={{ width: "100%", height: 60 }}
                 />
                 <View
                   style={[
@@ -865,13 +891,16 @@ function Core() {
                     </Pressable>
                   ))}
                 </View>
-                <View
-                  style={{
-                    width: "100%",
-                    height: 3,
-                    backgroundColor: "#b6b2d2",
-                    marginTop: 8,
-                  }}
+                <Slider
+                  accessibilityLabel={t("재생 위치", "Playback position")}
+                  minimumValue={0}
+                  maximumValue={audio.duration}
+                  value={audio.elapsed}
+                  onSlidingComplete={audio.seek}
+                  minimumTrackTintColor={dark ? "#d6abcd" : "#c6a7e8"}
+                  maximumTrackTintColor="#b6b2d2"
+                  thumbTintColor="#eee7fb"
+                  style={{ width: "100%", height: 24 }}
                 />
                 <View
                   style={[
@@ -939,7 +968,7 @@ function Core() {
                     accessibilityLabel={t("반복재생", "Repeat")}
                     accessibilityState={{ selected: repeat }}
                     onPress={() => setRepeat(!repeat)}
-                    style={{ opacity: repeat ? 1 : 0.4 }}
+                    style={[styles.iconButton, { opacity: repeat ? 1 : 0.4 }]}
                   >
                     <Icon white name="repeat" size={28} />
                   </Pressable>
@@ -982,6 +1011,7 @@ function Core() {
           open={open}
           nav={nav}
           notify={setMessage}
+          listen={listen}
           editSaved={(mix) => {
             setEditing(mix);
             setSelected(mix.cover);

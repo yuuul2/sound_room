@@ -1,0 +1,62 @@
+[
+  {
+    "id": "rain",
+    "file": "rain.mp3",
+    "durationSeconds": 48.0,
+    "sha256": "6dbcbd6e5c0b5e1963a6b1e27124477192c6160c6baa0471f3aa66230653083e",
+    "bytes": 769087,
+    "peakDbfs": -14.469549179077148,
+    "rmsDbfs": -35.14405822753906,
+    "processing": "48-second mono excerpt; 2-second linear loop splice; DC removal; fixed gain capped at 0.20 peak; MP3 128k."
+  },
+  {
+    "id": "ocean",
+    "file": "ocean.mp3",
+    "durationSeconds": 48.0,
+    "sha256": "132ae54d464fe5153d0ed120fb27831abe4aa187705560f2129adcfd15de93aa",
+    "bytes": 769087,
+    "peakDbfs": -14.455304145812988,
+    "rmsDbfs": -33.81245422363281,
+    "processing": "48-second mono excerpt; 2-second linear loop splice; DC removal; fixed gain capped at 0.20 peak; MP3 128k."
+  },
+  {
+    "id": "wind",
+    "file": "wind.mp3",
+    "durationSeconds": 48.0,
+    "sha256": "81007bb84817a7cceeabd0bb5a8fa53569d1b31c384ce1f9768c45bc819870d0",
+    "bytes": 769087,
+    "peakDbfs": -14.296380996704102,
+    "rmsDbfs": -33.1063117980957,
+    "processing": "48-second mono excerpt; 2-second linear loop splice; DC removal; fixed gain capped at 0.20 peak; MP3 128k."
+  },
+  {
+    "id": "cafe",
+    "file": "cafe.mp3",
+    "durationSeconds": 48.0,
+    "sha256": "0c9a818811117a9aa735227ed14bda9a509d3451613c5b2cb0e7288a63e1f93b",
+    "bytes": 769087,
+    "peakDbfs": -14.378961563110352,
+    "rmsDbfs": -29.09076499938965,
+    "processing": "48-second mono excerpt; 2-second linear loop splice; DC removal; fixed gain capped at 0.20 peak; MP3 128k."
+  },
+  {
+    "id": "forest",
+    "file": "forest.mp3",
+    "durationSeconds": 48.0,
+    "sha256": "c2408e44463350b1b0dbd81b8f256140c4a23dfafd6c9ba5f395538754d5ec2c",
+    "bytes": 769087,
+    "peakDbfs": -14.42510986328125,
+    "rmsDbfs": -35.02625274658203,
+    "processing": "48-second mono excerpt; 2-second linear loop splice; DC removal; fixed gain capped at 0.20 peak; MP3 128k."
+  },
+  {
+    "id": "piano",
+    "file": "piano.mp3",
+    "durationSeconds": 48.0,
+    "sha256": "489d763d4a64e770ac25d1214755330eac80c7b757f3b3ccc836b178fc595113",
+    "bytes": 769087,
+    "peakDbfs": -14.4285306930542,
+    "rmsDbfs": -35.4820671081543,
+    "processing": "Original 48-second, 8-bar sparse arpeggio arrangement of Meta Piano Vel01 CC0 recorded samples; periodic natural note tails; mono MP3 128k."
+  }
+]

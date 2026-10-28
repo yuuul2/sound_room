@@ -1,0 +1,116 @@
+[
+  {
+    "file": "rain.ogg",
+    "url": "https://raw.githubusercontent.com/funcoder/omarchy-ambient/2686c861bff26bc7da55dd8e4e858f6d66d39a41/sounds/rain.ogg",
+    "bytes": 9511888,
+    "sha256": "b29bb359af8f9569e7b409bb025aac4dcee1a4c2ef491920ec0c4d9c2a378f3f"
+  },
+  {
+    "file": "ocean.ogg",
+    "url": "https://raw.githubusercontent.com/funcoder/omarchy-ambient/2686c861bff26bc7da55dd8e4e858f6d66d39a41/sounds/waves.ogg",
+    "bytes": 7315855,
+    "sha256": "738c325c88a41dd544c7940b3b402c8d3a7bb5c59ec83b3e83600d3a0e59f82d"
+  },
+  {
+    "file": "wind.ogg",
+    "url": "https://raw.githubusercontent.com/funcoder/omarchy-ambient/2686c861bff26bc7da55dd8e4e858f6d66d39a41/sounds/wind.ogg",
+    "bytes": 7519246,
+    "sha256": "038aa5449ccfe210ca04c73234b02fbfa3a494c995751da60e6be6cb8f2b51ab"
+  },
+  {
+    "file": "forest.ogg",
+    "url": "https://raw.githubusercontent.com/funcoder/omarchy-ambient/2686c861bff26bc7da55dd8e4e858f6d66d39a41/sounds/birds.ogg",
+    "bytes": 4099705,
+    "sha256": "d2eb38364801def2f0fbce78a8e1465208ece784c75c060fd26c8c9aaa4011ed"
+  },
+  {
+    "file": "cafe.ogg",
+    "url": "https://raw.githubusercontent.com/rafaelmardojai/blanket/775f2a767230a9681850d1b1e085be58656f1382/data/resources/sounds/coffee-shop.ogg",
+    "bytes": 265612,
+    "sha256": "397b5d95f06df69ba2989147cf9c37a417b2dc5950c1a16fbe6be6fa372d25ef"
+  },
+  {
+    "file": "piano-C3.ogg",
+    "url": "https://raw.githubusercontent.com/facebookincubator/Meta-open-sound/251c0be57d5d1b3242b91f53e0cde62ab1cb42d9/systems/instruments/meta-piano/ogg/INSPiano_Vel01_C3_01.ogg",
+    "bytes": 132067,
+    "sha256": "b1f925572614bbe494e5a82ca75abd04fdee256c92d58619544dd86fe1cee479"
+  },
+  {
+    "file": "piano-D3.ogg",
+    "url": "https://raw.githubusercontent.com/facebookincubator/Meta-open-sound/251c0be57d5d1b3242b91f53e0cde62ab1cb42d9/systems/instruments/meta-piano/ogg/INSPiano_Vel01_D3_01.ogg",
+    "bytes": 194682,
+    "sha256": "c44f0efd14a800d8dc47e8141e4084fb76613f642f9a5e9c9e859b5773ac9c53"
+  },
+  {
+    "file": "piano-E3.ogg",
+    "url": "https://raw.githubusercontent.com/facebookincubator/Meta-open-sound/251c0be57d5d1b3242b91f53e0cde62ab1cb42d9/systems/instruments/meta-piano/ogg/INSPiano_Vel01_E3_01.ogg",
+    "bytes": 182369,
+    "sha256": "c5b081fa5d9e1b1a54d102d79a33c34d40a157ec4f07cab6eafabf2e628889b5"
+  },
+  {
+    "file": "piano-F3.ogg",
+    "url": "https://raw.githubusercontent.com/facebookincubator/Meta-open-sound/251c0be57d5d1b3242b91f53e0cde62ab1cb42d9/systems/instruments/meta-piano/ogg/INSPiano_Vel01_F3_01.ogg",
+    "bytes": 179243,
+    "sha256": "0b21dcb6e9d23269054d1ef2b2419671f93bbacc544e024161f64ced3e97d9b7"
+  },
+  {
+    "file": "piano-G3.ogg",
+    "url": "https://raw.githubusercontent.com/facebookincubator/Meta-open-sound/251c0be57d5d1b3242b91f53e0cde62ab1cb42d9/systems/instruments/meta-piano/ogg/INSPiano_Vel01_G3_01.ogg",
+    "bytes": 209418,
+    "sha256": "5f1760e5ac8f88461d917b72c991b339bed6c7adf5a092e51f0b96ea1b456984"
+  },
+  {
+    "file": "piano-A3.ogg",
+    "url": "https://raw.githubusercontent.com/facebookincubator/Meta-open-sound/251c0be57d5d1b3242b91f53e0cde62ab1cb42d9/systems/instruments/meta-piano/ogg/INSPiano_Vel01_A3_01.ogg",
+    "bytes": 86535,
+    "sha256": "9d581de732044b3c8894cce5e938aee7bb1ac6384c7aae0e4b64ebda29a381b3"
+  },
+  {
+    "file": "piano-B3.ogg",
+    "url": "https://raw.githubusercontent.com/facebookincubator/Meta-open-sound/251c0be57d5d1b3242b91f53e0cde62ab1cb42d9/systems/instruments/meta-piano/ogg/INSPiano_Vel01_B3_01.ogg",
+    "bytes": 168031,
+    "sha256": "11b2bde6097adf4c1a228a928ae6e8a1212eb01ef8955cce6c2813b9dff52655"
+  },
+  {
+    "file": "piano-C4.ogg",
+    "url": "https://raw.githubusercontent.com/facebookincubator/Meta-open-sound/251c0be57d5d1b3242b91f53e0cde62ab1cb42d9/systems/instruments/meta-piano/ogg/INSPiano_Vel01_C4_01.ogg",
+    "bytes": 104970,
+    "sha256": "8af4661a8396e8bb2247f576d3b201e34f68f0289268c28b70018c607178d8be"
+  },
+  {
+    "file": "piano-D4.ogg",
+    "url": "https://raw.githubusercontent.com/facebookincubator/Meta-open-sound/251c0be57d5d1b3242b91f53e0cde62ab1cb42d9/systems/instruments/meta-piano/ogg/INSPiano_Vel01_D4_01.ogg",
+    "bytes": 134968,
+    "sha256": "1ee2d01a2579fe96dc6c9cdb8ea9588f66b0dfd25d3f52f67bd831e8d856ba9b"
+  },
+  {
+    "file": "piano-E4.ogg",
+    "url": "https://raw.githubusercontent.com/facebookincubator/Meta-open-sound/251c0be57d5d1b3242b91f53e0cde62ab1cb42d9/systems/instruments/meta-piano/ogg/INSPiano_Vel01_E4_01.ogg",
+    "bytes": 151926,
+    "sha256": "d88b1087f5a1774b64ef69d5ee4615fe22758b79f275cd5694462a6c470c92a3"
+  },
+  {
+    "file": "piano-F4.ogg",
+    "url": "https://raw.githubusercontent.com/facebookincubator/Meta-open-sound/251c0be57d5d1b3242b91f53e0cde62ab1cb42d9/systems/instruments/meta-piano/ogg/INSPiano_Vel01_F4_01.ogg",
+    "bytes": 72037,
+    "sha256": "9eb9f4f39b6908a0e027749a487b91d6d41e12bd047144ac49d3b8d6f4a0ce60"
+  },
+  {
+    "file": "piano-G4.ogg",
+    "url": "https://raw.githubusercontent.com/facebookincubator/Meta-open-sound/251c0be57d5d1b3242b91f53e0cde62ab1cb42d9/systems/instruments/meta-piano/ogg/INSPiano_Vel01_G4_01.ogg",
+    "bytes": 122161,
+    "sha256": "e05c81cae593dfa100e76e3f06a9824bbfa16d0161f496d41a22119ff057489f"
+  },
+  {
+    "file": "piano-A4.ogg",
+    "url": "https://raw.githubusercontent.com/facebookincubator/Meta-open-sound/251c0be57d5d1b3242b91f53e0cde62ab1cb42d9/systems/instruments/meta-piano/ogg/INSPiano_Vel01_A4_01.ogg",
+    "bytes": 119558,
+    "sha256": "d572eca32468a8d668cfbe72a324c765cb85e5d20e843b13e091e6bf4131db61"
+  },
+  {
+    "file": "piano-B4.ogg",
+    "url": "https://raw.githubusercontent.com/facebookincubator/Meta-open-sound/251c0be57d5d1b3242b91f53e0cde62ab1cb42d9/systems/instruments/meta-piano/ogg/INSPiano_Vel01_B4_01.ogg",
+    "bytes": 107142,
+    "sha256": "47a71e65b1feeaf8bc1e424dc860a9c61e5d708850e28111763806e97838d3ca"
+  }
+]

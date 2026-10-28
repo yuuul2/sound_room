@@ -102,6 +102,7 @@ export function Scenes({
   nav,
   notify,
   editSaved,
+  listen,
 }: {
   screen: Scene;
   navigate: (s: Scene) => void;
@@ -110,6 +111,7 @@ export function Scenes({
   nav: React.ReactNode;
   notify: (s: string) => void;
   editSaved: (mix: SavedMix) => void;
+  listen: () => void;
 }) {
   const { state, update, storageError } = useApp();
   const t = (ko: string, en: string) => (state.en ? en : ko);
@@ -379,7 +381,7 @@ export function Scenes({
           </View>
           <Button
             title={t("지금 이 분위기 듣기", "Listen to this atmosphere")}
-            onPress={() => navigate("player")}
+            onPress={listen}
           />
           <Button
             title={t("내 취향대로 편집하기", "Customize this mix")}

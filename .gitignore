@@ -45,3 +45,6 @@ yarn-error.*
 test-results/
 playwright-report/
 *.zip
+
+# Phone browser export
+dist-web/

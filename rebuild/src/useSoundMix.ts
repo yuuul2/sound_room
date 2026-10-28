@@ -63,7 +63,7 @@ export function useSoundMix(
       players.forEach((p, i) => {
         p.loop = repeat;
         p.volume = active[i]
-          ? Math.max(0, Math.min(1, volumes[i] / 100)) * gain
+          ? Math.max(0, Math.min(1, volumes[i] / 100)) * gain * 0.65
           : 0;
         if (
           !requested ||
@@ -104,6 +104,12 @@ export function useSoundMix(
     if (!repeat && ended) setRequested(false);
   }, [repeat, ended]);
   return {
+    duration: Math.max(48, ...statuses.map((s) => s.duration || 0)),
+    seek: (seconds: number) => {
+      players.forEach((p) => {
+        void p.seekTo(Math.max(0, Math.min(47.99, seconds)));
+      });
+    },
     playing: statuses.some((s, i) => active[i] && s.playing),
     available,
     ready,
@@ -117,6 +123,14 @@ export function useSoundMix(
       if (!available) return "missing";
       if (!ready) return "loading";
       setError(null);
+      players.forEach((p, i) => {
+        if (active[i]) {
+          p.loop = repeat;
+          p.volume = (volumes[i] / 100) * gain * 0.65;
+          if (p.currentTime >= p.duration) void p.seekTo(0);
+          p.play();
+        }
+      });
       setRequested(true);
       return "playing";
     },

@@ -108,7 +108,7 @@ test("timer validates custom input, counts down and all day cancels it", async (
     "—",
   );
 });
-test("search empty state and absent audio are explicit", async ({ page }) => {
+test("search empty state and real playback controls", async ({ page }) => {
   await home(page);
   await page.getByRole("button", { name: "Search", exact: true }).click();
   await page
@@ -120,11 +120,12 @@ test("search empty state and absent audio are explicit", async ({ page }) => {
   await player(page);
   await page.getByRole("button", { name: "Play", exact: true }).click();
   await expect(
-    page.getByText("No audio source is connected yet.", { exact: true }),
-  ).toBeVisible();
-  await expect(
     page.getByRole("button", { name: "Pause", exact: true }),
-  ).toHaveCount(0);
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await expect(
+    page.getByRole("button", { name: "Play", exact: true }),
+  ).toBeVisible();
 });
 test("English screens stay within narrow viewport and navigation stays visible", async ({
   page,
