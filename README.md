@@ -18,11 +18,17 @@
 - 에셋별 색감과 시안의 세부 간격 최종 검수. 일부 제공된 PNG 선 아이콘에는 원본의 가장자리 흔적이 있습니다.
 - 시스템 알림, 출시용 문의 주소, 백그라운드 재생, 스토어 등록·개인정보처리방침·앱 아이콘·서명. 현재 알림/문의는 미연결 안내를 표시합니다. 타이머의 백그라운드 종료도 미검증입니다.
 
-## 휴대폰 링크 테스트 준비
+## 휴대폰에서 바로 테스트
 
-Android Chrome과 iPhone Safari에서 열 수 있는 정적 웹 테스트판을 만들었습니다. 네이티브 설치 파일이나 스토어 배포본과는 구분합니다. 배포 대상은 `https://yuuul2.github.io/sound_room/`이며, GitHub Pages 배포 성공 확인 전에는 작동하는 링크로 안내하지 않습니다.
+**테스트 주소: https://yuuul2.github.io/sound_room/**
 
-GitHub Pages가 처음이라면 저장소 관리자가 Settings → Pages → Build and deployment → Source를 **Deploy from a branch**로, Branch를 **gh-pages / (root)**로 선택하고 Save를 누릅니다. 이미 빌드한 테스트 웹사이트가 gh-pages 브랜치에 준비됩니다. 다음 버전은 작업자가 해당 브랜치를 갱신합니다. 사이트 활성화 여부는 별도 검증해야 합니다.
+휴대폰의 Chrome 또는 Safari에서 링크를 엽니다. 온보딩을 넘기고, 믹서 → 재생하기로 소리를 확인합니다. 저장한 분위기는 보관함에서 다시 열 수 있고, 마이 → 언어/배경 테마에서 전환합니다. 개발 환경이나 Expo 계정 설정은 필요 없습니다.
+
+2026-10-28 [GitHub Pages 배포 #1](https://github.com/yuuul2/sound_room/actions/runs/40652897863)이 **Success**로 완료되어 위 주소가 발급됐습니다. 동일한 배포 파일을 `/sound_room/` 경로로 로컬에서 검증해 실제 재생·저장 유지와 HTTP 오류 0건을 확인했습니다. 이 클라우드에서는 github.io 직접 접속이 네트워크 정책으로 제한되어 공개 주소의 HTTP 응답은 별도로 확인하지 못했습니다. 실제 Android/iPhone 실행 검증 역시 아직 하지 않았습니다.
+
+이것은 **휴대폰 브라우저 테스트판**입니다. APK/IPA나 앱스토어 출시본은 아니며, 화면 잠금·백그라운드 재생·Bluetooth 동작은 기기별 검수가 필요합니다. 테스트 데이터는 해당 브라우저 안에 저장됩니다.
+
+배포 방식: `npm run export:phone-web`로 검증한 `dist-web` 파일을 `gh-pages` 브랜치에 게시합니다. GitHub의 기본 Pages 빌드가 자동 배포합니다. main 브랜치는 소스이며, main에만 수정해도 웹사이트가 바뀌는 것은 아닙니다.
 
 ## Expo Go를 사용하는 선택적 로컬 테스트
 
