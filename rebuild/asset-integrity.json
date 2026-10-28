@@ -1,0 +1,490 @@
+[
+  {
+    "path": "rebuild/assets/dark/backgrounds_covers/home_clouds.png",
+    "sha256": "de48a3320ae81d1ed60cedc4e0f7d81329ef1135f99763b93700862b21e0e9c2"
+  },
+  {
+    "path": "rebuild/assets/dark/backgrounds_covers/mixer_cloud_gradient.png",
+    "sha256": "c692b4b8e4da4df38ea937532c82526fe344118ee7eee0fa62077cd2e70774d8"
+  },
+  {
+    "path": "rebuild/assets/dark/backgrounds_covers/onboarding_arch_room.png",
+    "sha256": "623b99fa0f3147876a0cb689e60eb040ad5e0fb6750445124586459dabb3fecf"
+  },
+  {
+    "path": "rebuild/assets/dark/backgrounds_covers/onboarding_mixing_room.png",
+    "sha256": "cfbe967e18eb554e6bcd92b1c1effd8d452677087ae42dac23fc3733c57d0fd4"
+  },
+  {
+    "path": "rebuild/assets/dark/backgrounds_covers/player_moon_ocean.png",
+    "sha256": "6d21c6c3c45721d7116e880f05f89a9e390b3d85884b9131663650716d88b440"
+  },
+  {
+    "path": "rebuild/assets/dark/backgrounds_covers/preset_cafe.png",
+    "sha256": "1b6743e7e21e7534d7d61abd268a0def4497093f0c117a708b0fc6a6cc138832"
+  },
+  {
+    "path": "rebuild/assets/dark/backgrounds_covers/preset_forest.png",
+    "sha256": "da93dcd4e30f253566de78a718360877236be875b38fc8a9625ff6a0ad0c5cd7"
+  },
+  {
+    "path": "rebuild/assets/dark/backgrounds_covers/preset_ocean.png",
+    "sha256": "849586d59ae2e8ced8cd5511302949d94fa2d2b0bce0bbf6f6c893637ff75705"
+  },
+  {
+    "path": "rebuild/assets/dark/backgrounds_covers/preset_rain_bedroom.png",
+    "sha256": "fb5540074d4c0719996b15b1a276883e40b762881d5f92a2e4f16c670564ca1e"
+  },
+  {
+    "path": "rebuild/assets/dark/backgrounds_covers/profile_crescent.png",
+    "sha256": "55e61987c906d766810aae4c70711bf4e1c823211bca3ea0a1ae38dda8f9fb0d"
+  },
+  {
+    "path": "rebuild/assets/dark/backgrounds_covers/sound_piano.png",
+    "sha256": "dded5ca1df0f79ecba2c8e75c873849206739ef275e1e86563669fed621abdec"
+  },
+  {
+    "path": "rebuild/assets/dark/backgrounds_covers/splash.png",
+    "sha256": "eab4f214b2f43659591e9c1e214fc29d92858f72437f4e06391e57ca996bb638"
+  },
+  {
+    "path": "rebuild/assets/dark/onboarding/onboarding.png",
+    "sha256": "204c42a541732adb5bac7cad6839264f799ff29b05c5b6ae69fd63d8422d4b4c"
+  },
+  {
+    "path": "rebuild/assets/dark/player/cafe.png",
+    "sha256": "335170fa6b3b627f7593e600016c3d899ceaf2608b2761b87eef24b492db1d67"
+  },
+  {
+    "path": "rebuild/assets/dark/player/forest.png",
+    "sha256": "f2983e24ff0783bf1423c424ebfa4ceba6de47ed1161f5670adc2d77271418d3"
+  },
+  {
+    "path": "rebuild/assets/dark/player/ocean.png",
+    "sha256": "418b403cbbbaa3110b2d769b4551aef7468664e345a6b3d6b8a7ba1c003eff55"
+  },
+  {
+    "path": "rebuild/assets/dark/player/piano.png",
+    "sha256": "6b8d0f71d26d1bff5e2bdb9b315ba27dfcc4ad52d84b1a9ce95798d47cb6a662"
+  },
+  {
+    "path": "rebuild/assets/dark/player/rain.png",
+    "sha256": "6ec73763e904c47dd810483019948cd09987a4dade02a6f4604e907ffc7379ea"
+  },
+  {
+    "path": "rebuild/assets/dark/player/waveform.png",
+    "sha256": "9620bc144d9bcb5ec7becb87485dead4b5f09e64048530cd43228e052747203d"
+  },
+  {
+    "path": "rebuild/assets/dark/player/wind.png",
+    "sha256": "effc9f636d04810c062387e331e28fea76acace8b9ceb9877b0eb45bb50a64a1"
+  },
+  {
+    "path": "rebuild/assets/dark/preset_detail/piano.png",
+    "sha256": "562f97d50621bce8bdeab937178debe4b48f2eab9d756c027cc515846f0cecf4"
+  },
+  {
+    "path": "rebuild/assets/dark/preset_detail/rain.png",
+    "sha256": "a9a82ba449e2f414d7f3b265610ec4cccc72760745cd9d71916935a8945dc979"
+  },
+  {
+    "path": "rebuild/assets/dark/preset_detail/wind.png",
+    "sha256": "12f9ce0c8f3f3480be68e4ecf6285a4989e585780033c9c02dcabed97bd48542"
+  },
+  {
+    "path": "rebuild/assets/dark/sound_mixer/cafe.png",
+    "sha256": "6be1db0bb3a847b04172913d7c2d2013fe8d3c681f072f4d91f9b978038ad6a2"
+  },
+  {
+    "path": "rebuild/assets/dark/sound_mixer/forest.png",
+    "sha256": "ab48be94a4d59c4bb5c39a8380e7262986ccce0841da336c8f444546f3ac2fb4"
+  },
+  {
+    "path": "rebuild/assets/dark/sound_mixer/ocean.png",
+    "sha256": "75bda2cd8031dcc55f185af80ebbdbafcf57b66c074330fb9215d0d028ce5c86"
+  },
+  {
+    "path": "rebuild/assets/dark/sound_mixer/piano.png",
+    "sha256": "d32c72e74bf887e6e8c65edc3895d20c50ecc1733c20d2ae2a0cd307051f6efe"
+  },
+  {
+    "path": "rebuild/assets/dark/sound_mixer/rain.png",
+    "sha256": "b728f2a585e27db1542360b4f586367bd53e17a476af4d44e47789e17e1a72b8"
+  },
+  {
+    "path": "rebuild/assets/dark/sound_mixer/wind.png",
+    "sha256": "62aa390606210652ecd33c07a3d3bc7e41363e3ddf7382cffaeeb8e4cc8df99c"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/back.png",
+    "sha256": "30913b2c74b6fb02b071f15b41066745a3bbdd0b1da0b300ef0df2789a99228e"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/bell.png",
+    "sha256": "1d965608549fa8794cdf6d48dda411c92c4dc1ded637e622946165f743248e05"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/bookmark.png",
+    "sha256": "75c9fa3403c50179a6911a9d1edecc174fd90aff71927ad30ae820f44bf6e665"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/check.png",
+    "sha256": "e8940019126a65fa0f85f16ebb8b4fb67fc1b070c5631606cc889bb5bdb97962"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/close.png",
+    "sha256": "b966ddf9835cd3ba40b91e0ad5064b6588f233640b664d962d9b3c0e3f2355e5"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/down.png",
+    "sha256": "f6ae0e5953e794db04a36efe9c12ce5d9aa54ff9343053ee84245f500e8850e0"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/heart.png",
+    "sha256": "51d8d85ddf11576997dc68075ef849816b8f05a0283ac558307a35cad4eee65d"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/home.png",
+    "sha256": "29c22ca038e80be2a62392a1575e116af366fa22e6c16d81d15611eb1b9ab05b"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/infinity.png",
+    "sha256": "4cad5ca4fb303d9c66f560e7bf6ee4f7719453ec0e0b5112ca88393837398a0d"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/info.png",
+    "sha256": "924867f606f6856e93ca88c77fa48e966416d8721803118892a0f094b653b8c2"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/mail.png",
+    "sha256": "be7300cb6d5a77bb655ad6bf02d39bcd027adc2220f5ffc0a46d6f5829ad4604"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/mixer.png",
+    "sha256": "13b34dfecfeccc0ca40f827615d07f26b146c3c362ff216f1ef676c1d47904ca"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/moon.png",
+    "sha256": "a4278f5c7f3d9d0d362c0901b9aba52d2d76a01ddfd713a9b89b70ac9d08ccc5"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/more.png",
+    "sha256": "d81e1e32d458b931de31a701bd46d36d96c1790735eb289b08e2908530e125aa"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/next.png",
+    "sha256": "ac8877526ef5c898ca0947b432ce0ea66eb9740dc048b8fb76ce2159f409416d"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/pause.png",
+    "sha256": "b582aa0fd2fec11cc1e7a6b04532dc32f13e3ba317b7518bc1c2e4df5dcefa71"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/pencil.png",
+    "sha256": "1d362b2009db9adc052345f508aef19cfa44615f2ca4f4e719f4a7ed93cecca3"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/piano.png",
+    "sha256": "d2ca510d637f2ec28009df1e8d77f90093582890eb9d0a68491b5d62bbe77926"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/play.png",
+    "sha256": "92194f4d682e35ec15f9a82699ddafd5cf17a1b5b28995ef627e5892fbae7a60"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/previous.png",
+    "sha256": "4bcc1224b01955d85721ccac9621694f8f53b5c307cdd69d8331d969f03a4f61"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/rain.png",
+    "sha256": "5c195d7a902d372002ef93fcb57dc8787b2cf68f74a148d1bf501b4e71808d76"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/repeat.png",
+    "sha256": "b4732706c7f544e95aaa8c39ac15e4fb0a604e37feae9577bc2a73423d852533"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/reset.png",
+    "sha256": "01eb75c6e0586be616ca5fa639a66fe4745e5e69f505b62aed05c1094d3a2a15"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/search.png",
+    "sha256": "7d58b17ccd9f57cb670c59a4e5547535ea16522c11fc975dfd69832e97bb3c55"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/settings.png",
+    "sha256": "58d6c86b4db73ffbaca11c6fa5d86f1c64de1aa83117b32e3c47a011e3425290"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/shuffle.png",
+    "sha256": "efe224a1b2a2adea219790c3162892e16750fcd66acc8a0868575ee9eb4e9476"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/sliders.png",
+    "sha256": "f6123421f972b404fe3b2ba8782cbdb5fa147d986abcf11d975a8e4bcec1c877"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/sun.png",
+    "sha256": "cedc711f393da989578b7e7080c59d4bb286fff3c1763732f78c0a5e90550c44"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/timer.png",
+    "sha256": "11d07499d62d551767cd7b3fe880ed9a58a863d6d9b86000f38f039c83d57fe9"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/user.png",
+    "sha256": "9c0191811a9c418b547a5a3e4f751e3639491719d383cde6ea41c61e2c77ccbf"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/waves.png",
+    "sha256": "21991108475e8396ef0bdc58ba9e77a2d15ccaa91e133d540a20824e083f0582"
+  },
+  {
+    "path": "rebuild/assets/dark/ui_icons/wind.png",
+    "sha256": "85ef378c7b0e10ea7116effe699c79772fcf033500f45f84d08f5aebfe23eca3"
+  },
+  {
+    "path": "rebuild/assets/light/backgrounds_covers/home_clouds.png",
+    "sha256": "d7659473ad51aab19c80fa5517a6f86be39633e0cbe613e875d80618dd0cb2b6"
+  },
+  {
+    "path": "rebuild/assets/light/backgrounds_covers/mixer_cloud_gradient.png",
+    "sha256": "b4960cfcb166f959dc155835fc34d7c8e770e304a1ffb9652ed621d83b3ba0e5"
+  },
+  {
+    "path": "rebuild/assets/light/backgrounds_covers/onboarding_arch_room.png",
+    "sha256": "439408887fee609616542160b318f03a600b3a611f4f9bacec2bc23ee6de8fc1"
+  },
+  {
+    "path": "rebuild/assets/light/backgrounds_covers/onboarding_mixing_room.png",
+    "sha256": "7f26fca6afbe19d46fd1044d1a07179bd85c07a01fb863ea6d217a3fae8ff8d5"
+  },
+  {
+    "path": "rebuild/assets/light/backgrounds_covers/player_moon_ocean.png",
+    "sha256": "0e726e8014df4686f5fdbe4d9a132dab9931c338312818820179ca63eab85ff5"
+  },
+  {
+    "path": "rebuild/assets/light/backgrounds_covers/preset_cafe.png",
+    "sha256": "98fb5a2d17efd53f5cbb17f4997caf03f4f9195958a6d5d77fa12c4cc5dd5404"
+  },
+  {
+    "path": "rebuild/assets/light/backgrounds_covers/preset_forest.png",
+    "sha256": "553806fa9146c0dfaac8fc7e82c57e069a9d1eca49894d1d7c5563be9bd3b093"
+  },
+  {
+    "path": "rebuild/assets/light/backgrounds_covers/preset_ocean.png",
+    "sha256": "4db97884f1dc4cf23142002cff766933b35e0d6fc7815e2a0622a6d42a63cc15"
+  },
+  {
+    "path": "rebuild/assets/light/backgrounds_covers/preset_rain_bedroom.png",
+    "sha256": "23017defb52aa0acc26fe729572804e7f4933b9ecc865fe8a7ae798733305111"
+  },
+  {
+    "path": "rebuild/assets/light/backgrounds_covers/profile_crescent.png",
+    "sha256": "9c93a44448ab9eb326a9c6ec41df5d3db1e0a7f35a4a687686600ec798ab290e"
+  },
+  {
+    "path": "rebuild/assets/light/backgrounds_covers/sound_piano.png",
+    "sha256": "50113282aa9d4c3f3a73bb02fd5643d7f0f4231373681b319d5ce33c7786c089"
+  },
+  {
+    "path": "rebuild/assets/light/backgrounds_covers/splash.png",
+    "sha256": "00598150457995f31f29e7ac26371733f6312f09042cbf84b1f6dadec5eb2eec"
+  },
+  {
+    "path": "rebuild/assets/light/onboarding/onboarding.png",
+    "sha256": "f9f56e34e96dda192aa136de581d91cc2a287efe63ce5ebaab03d7cfde575650"
+  },
+  {
+    "path": "rebuild/assets/light/player/cafe.png",
+    "sha256": "5087dee0dd1808469342997b36ff91769bf688ce706126e0193d648eec85d92e"
+  },
+  {
+    "path": "rebuild/assets/light/player/forest.png",
+    "sha256": "46f79448eebda1f6d5d52e46f7eba941c353b4b7f8c95a1c91ddf0aa9e384ce0"
+  },
+  {
+    "path": "rebuild/assets/light/player/ocean.png",
+    "sha256": "bd713da8cff22a2efb5458a8b96cd59430394950b38db5c3cd12c2d43e6f18ee"
+  },
+  {
+    "path": "rebuild/assets/light/player/piano.png",
+    "sha256": "692f9995bd95f5b3def907b379ee967d032c28e5efcb56279232898e156b7178"
+  },
+  {
+    "path": "rebuild/assets/light/player/rain.png",
+    "sha256": "e442ef413160fc312fc59daf5a063857ad709b043ab97d805ae6593c36781134"
+  },
+  {
+    "path": "rebuild/assets/light/player/waveform.png",
+    "sha256": "bc0706bfe79d309aa7ce577acf0edce331ed56a38bc1cdc99293e5a2977ea0e1"
+  },
+  {
+    "path": "rebuild/assets/light/player/wind.png",
+    "sha256": "ddc7eb1ef153e770d268bed4d04fe8b1da4625e2558f979947cb6b9263c3bdf3"
+  },
+  {
+    "path": "rebuild/assets/light/preset_detail/piano.png",
+    "sha256": "8a77cbbe76a1bd822df53979ad7105f59f6e2f1e2297d633330c75e5d27dec84"
+  },
+  {
+    "path": "rebuild/assets/light/preset_detail/rain.png",
+    "sha256": "6cbb335a2d8484d0c5e3e236dbed99448d4b5c2cd45d42c2ee8bc15964b2b454"
+  },
+  {
+    "path": "rebuild/assets/light/preset_detail/wind.png",
+    "sha256": "2306947198c21b63c949179e8ae49fe31ede31ed8bb3ac3b8877bf5086b51186"
+  },
+  {
+    "path": "rebuild/assets/light/sound_mixer/cafe.png",
+    "sha256": "bb785a2914c59f010d018bd51ffda2cca1d51cc519676dbb74b9ae7f8059d8e9"
+  },
+  {
+    "path": "rebuild/assets/light/sound_mixer/forest.png",
+    "sha256": "2cdacd41eb9b0b63598ec20e41761ef93b6024df20dd608a69252a850d83ef7b"
+  },
+  {
+    "path": "rebuild/assets/light/sound_mixer/ocean.png",
+    "sha256": "51ba5a11a9402dfe7f56a35e480ef2c1ee1e6535fa79ae2cdbf3220307c63e79"
+  },
+  {
+    "path": "rebuild/assets/light/sound_mixer/piano.png",
+    "sha256": "84b9bac8beb72b1d36ae6649555609be98855a7938f0be21302b721e95d972f8"
+  },
+  {
+    "path": "rebuild/assets/light/sound_mixer/rain.png",
+    "sha256": "cfb6ff0dd35199a89f021c6cd30ef7e6d2ccea6821599ee7e66b0d5f77e806df"
+  },
+  {
+    "path": "rebuild/assets/light/sound_mixer/wind.png",
+    "sha256": "2197871d87c0b530784de2e2c1c3356dc7e1e097c1c9a02d29968b2ef7fad9ad"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/back.png",
+    "sha256": "0f06fc6c3b5d3f2f3e6979ea41151e707257bdfa7e1842bd917be84b94404048"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/bell.png",
+    "sha256": "4dc9c368db5e45ace0dfd2f7d4fae44462d1c9d631dc8d6715dfd5f2ff48911a"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/bookmark.png",
+    "sha256": "b5730fd0f5d343cabade42c76b907c748e6ee9c2bc7b649053d2dfb29119124f"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/check.png",
+    "sha256": "04c6108e3c0536365945b855b3f58577b0a31a3928f358bde774296380f5c0ba"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/close.png",
+    "sha256": "3f2d71db5306cb7739eb97f0744038dfb8caa3135667e921dc8f4812277feb35"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/down.png",
+    "sha256": "1e6bdae3bf9e4d2b34ac02d1a01da2e35a29fd2679854ce8aa00cb8cf82b1f5f"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/heart.png",
+    "sha256": "c01fc933c5325c5a4154f8990525ef9a60f5f200cef18a5bb99605d3bb6c42d7"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/home.png",
+    "sha256": "c522977385fc2c8107f6746445a4ed322f1ebeda633db9af1304cdd3e9b7afc5"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/infinity.png",
+    "sha256": "be506045a48b0e675e78f6bf9cec58953cd064610212d06853750a8e05def9d1"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/info.png",
+    "sha256": "87bb7f4333ea432cc051ec86622b3fa1e60cf64a6989bf8f6f184e7984ea1258"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/mail.png",
+    "sha256": "a2b2a5364dfdba16fdcc04cafdb9b785eb89383e281db74ff0b284d58f2d4e18"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/mixer.png",
+    "sha256": "cd965ec659181f62a45da22218741488ed967c921c8d82d9c4ab070c89d1c185"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/moon.png",
+    "sha256": "cd19dc3a3a91c2011637687427e9ffbc5626d32fc556743651f8aef4da4ff9b8"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/more.png",
+    "sha256": "de9fb4e07a77b0e256bf7aece6860a887c13440582530024873406a8e0d045a8"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/next.png",
+    "sha256": "5e8f1332182e002b6e61ea5bd990b13c26c9963b987c01b9533b650813f437c2"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/pause.png",
+    "sha256": "dd82857eb813e204195880bf0c6a728496f40ed7a7d8ead5110f120f66683a8a"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/pencil.png",
+    "sha256": "461b4322871cb46add71e21c363cc8f1410036d9468041153a022b0f6ec59b52"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/piano.png",
+    "sha256": "6a433a0491cc7b72cc16475e0b80899c38ce2c9d62c3990cc0f34c3a312bd781"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/play.png",
+    "sha256": "1f36de7add0461c3f932c8861527381ec5fb3f76abf7cf5a916906ed8aa0c43d"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/previous.png",
+    "sha256": "ab2ed1d9e7003e85c1d4d70679a912f5983a9bb23b98362b96872ec9e899c088"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/rain.png",
+    "sha256": "7b5e895b59cf4141b428b369a4fc450d4712f0a0ad0919f8b484dea521738f40"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/repeat.png",
+    "sha256": "7b2c04024f1ca996bb1639d38944c5b6fbe9bb35b31a17429a3d147cf8fffb30"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/reset.png",
+    "sha256": "ea478c2cfb3af8583a7ba09faaa400908365a137d349454c0fee31527bdeaa18"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/search.png",
+    "sha256": "32100f70c437cc92a67a031e28b2239818f81ca843e64091a51a7ef211ded769"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/settings.png",
+    "sha256": "4112252ae0f7aa1ff4c1a9fa64769842b57f17baa170b092570886ae864d57de"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/shuffle.png",
+    "sha256": "da180b7df68e5c6eed766703885b926fe5edd31207be73079d96c217545378cf"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/sliders.png",
+    "sha256": "d30ed28cfe500d147cd3aa13c3ca694dae3692e165f7e3f1e27ace0cb4eed242"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/sun.png",
+    "sha256": "dd72ea286c3c9483c928c54b73ef433f3f08298306c5a6ac1677c5deba0f2f5f"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/timer.png",
+    "sha256": "db2675618505817b17c7281a010fd5b8510186c1bf7e46121e4c98194e06a60e"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/user.png",
+    "sha256": "77fc8bb31e0e36c1ac9426210120584b881664c17d834157df146cd382e0a41d"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/waves.png",
+    "sha256": "ee2b05833ca5f27975e9dd5af01d0005051ff3702e049779b98f054f59c62dff"
+  },
+  {
+    "path": "rebuild/assets/light/ui_icons/wind.png",
+    "sha256": "c30717fa92e42afdc27440b4a143c963efa34fa287a03a76ad06de6b840253d7"
+  }
+]

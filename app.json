@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "SOUND ROOM",
+    "slug": "sound-room",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "scheme": "soundroom",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.yuuul2.soundroom"
+    },
+    "android": {
+      "package": "com.yuuul2.soundroom"
+    },
+    "web": {
+      "name": "SOUND ROOM",
+      "shortName": "SOUND ROOM",
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      [
+        "expo-audio",
+        {
+          "microphonePermission": false,
+          "enableBackgroundPlayback": false,
+          "enableBackgroundRecording": false
+        }
+      ],
+      "expo-font",
+      "expo-localization"
+    ]
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "backgrounds_covers_home_clouds": {
+    "path": "assets/light/backgrounds_covers/home_clouds.png",
+    "saturation": 0.88,
+    "reviewStatus": "draft_visual_comparison"
+  },
+  "backgrounds_covers_mixer_cloud_gradient": {
+    "path": "assets/light/backgrounds_covers/mixer_cloud_gradient.png",
+    "saturation": 0.82,
+    "reviewStatus": "draft_visual_comparison"
+  },
+  "backgrounds_covers_onboarding_arch_room": {
+    "path": "assets/light/backgrounds_covers/onboarding_arch_room.png",
+    "saturation": 0.86,
+    "reviewStatus": "draft_visual_comparison"
+  },
+  "backgrounds_covers_onboarding_mixing_room": {
+    "path": "assets/light/backgrounds_covers/onboarding_mixing_room.png",
+    "saturation": 0.88,
+    "reviewStatus": "draft_visual_comparison"
+  },
+  "backgrounds_covers_player_moon_ocean": {
+    "path": "assets/light/backgrounds_covers/player_moon_ocean.png",
+    "saturation": 0.84,
+    "reviewStatus": "draft_visual_comparison"
+  },
+  "backgrounds_covers_preset_cafe": {
+    "path": "assets/light/backgrounds_covers/preset_cafe.png",
+    "saturation": 0.9,
+    "reviewStatus": "draft_visual_comparison"
+  },
+  "backgrounds_covers_preset_forest": {
+    "path": "assets/light/backgrounds_covers/preset_forest.png",
+    "saturation": 0.84,
+    "reviewStatus": "draft_visual_comparison"
+  },
+  "backgrounds_covers_preset_ocean": {
+    "path": "assets/light/backgrounds_covers/preset_ocean.png",
+    "saturation": 0.82,
+    "reviewStatus": "draft_visual_comparison"
+  },
+  "backgrounds_covers_preset_rain_bedroom": {
+    "path": "assets/light/backgrounds_covers/preset_rain_bedroom.png",
+    "saturation": 0.86,
+    "reviewStatus": "draft_visual_comparison"
+  },
+  "backgrounds_covers_profile_crescent": {
+    "path": "assets/light/backgrounds_covers/profile_crescent.png",
+    "saturation": 0.85,
+    "reviewStatus": "draft_visual_comparison"
+  },
+  "backgrounds_covers_sound_piano": {
+    "path": "assets/light/backgrounds_covers/sound_piano.png",
+    "saturation": 0.9,
+    "reviewStatus": "draft_visual_comparison"
+  },
+  "backgrounds_covers_splash": {
+    "path": "assets/light/backgrounds_covers/splash.png",
+    "saturation": 0.86,
+    "reviewStatus": "draft_visual_comparison"
+  },
+  "onboarding_onboarding": {
+    "path": "assets/light/onboarding/onboarding.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "player_cafe": {
+    "path": "assets/light/player/cafe.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "player_forest": {
+    "path": "assets/light/player/forest.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "player_ocean": {
+    "path": "assets/light/player/ocean.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "player_piano": {
+    "path": "assets/light/player/piano.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "player_rain": {
+    "path": "assets/light/player/rain.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "player_waveform": {
+    "path": "assets/light/player/waveform.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "player_wind": {
+    "path": "assets/light/player/wind.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "preset_detail_piano": {
+    "path": "assets/light/preset_detail/piano.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "preset_detail_rain": {
+    "path": "assets/light/preset_detail/rain.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "preset_detail_wind": {
+    "path": "assets/light/preset_detail/wind.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "sound_mixer_cafe": {
+    "path": "assets/light/sound_mixer/cafe.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "sound_mixer_forest": {
+    "path": "assets/light/sound_mixer/forest.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "sound_mixer_ocean": {
+    "path": "assets/light/sound_mixer/ocean.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "sound_mixer_piano": {
+    "path": "assets/light/sound_mixer/piano.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "sound_mixer_rain": {
+    "path": "assets/light/sound_mixer/rain.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "sound_mixer_wind": {
+    "path": "assets/light/sound_mixer/wind.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_back": {
+    "path": "assets/light/ui_icons/back.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_bell": {
+    "path": "assets/light/ui_icons/bell.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_bookmark": {
+    "path": "assets/light/ui_icons/bookmark.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_check": {
+    "path": "assets/light/ui_icons/check.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_close": {
+    "path": "assets/light/ui_icons/close.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_down": {
+    "path": "assets/light/ui_icons/down.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_heart": {
+    "path": "assets/light/ui_icons/heart.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_home": {
+    "path": "assets/light/ui_icons/home.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_infinity": {
+    "path": "assets/light/ui_icons/infinity.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_info": {
+    "path": "assets/light/ui_icons/info.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_mail": {
+    "path": "assets/light/ui_icons/mail.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_mixer": {
+    "path": "assets/light/ui_icons/mixer.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_moon": {
+    "path": "assets/light/ui_icons/moon.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_more": {
+    "path": "assets/light/ui_icons/more.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_next": {
+    "path": "assets/light/ui_icons/next.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_pause": {
+    "path": "assets/light/ui_icons/pause.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_pencil": {
+    "path": "assets/light/ui_icons/pencil.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_piano": {
+    "path": "assets/light/ui_icons/piano.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_play": {
+    "path": "assets/light/ui_icons/play.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_previous": {
+    "path": "assets/light/ui_icons/previous.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_rain": {
+    "path": "assets/light/ui_icons/rain.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_repeat": {
+    "path": "assets/light/ui_icons/repeat.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_reset": {
+    "path": "assets/light/ui_icons/reset.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_search": {
+    "path": "assets/light/ui_icons/search.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_settings": {
+    "path": "assets/light/ui_icons/settings.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_shuffle": {
+    "path": "assets/light/ui_icons/shuffle.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_sliders": {
+    "path": "assets/light/ui_icons/sliders.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_sun": {
+    "path": "assets/light/ui_icons/sun.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_timer": {
+    "path": "assets/light/ui_icons/timer.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_user": {
+    "path": "assets/light/ui_icons/user.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_waves": {
+    "path": "assets/light/ui_icons/waves.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  },
+  "ui_icons_wind": {
+    "path": "assets/light/ui_icons/wind.png",
+    "saturation": 1.0,
+    "reviewStatus": "unreviewed"
+  }
+}
