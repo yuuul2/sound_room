@@ -39,6 +39,9 @@ async function instrument(page: Page) {
 async function start(page: Page) {
   await instrument(page);
   await page.goto("/");
+  await page
+    .getByRole("button", { name: "Start onboarding", exact: true })
+    .click();
   await page.getByRole("button", { name: "Skip", exact: true }).click();
   await page.getByRole("button", { name: "Open player", exact: true }).click();
   await page.getByRole("button", { name: "Play", exact: true }).click();

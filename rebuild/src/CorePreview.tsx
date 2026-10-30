@@ -182,6 +182,12 @@ export default function CorePreview() {
   );
 }
 function Core() {
+  const [reviewWelcome, setReviewWelcome] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      typeof window.location !== "undefined" &&
+      new URLSearchParams(window.location.search).get("welcome") === "1",
+  );
   const { state, update, ready } = useApp();
   const { en, dark } = state;
   const [screen, setScreen] = useState<Scene>("home");
@@ -327,7 +333,8 @@ function Core() {
     </View>
   );
   if (!ready) return <View />;
-  if (!state.onboarded) return <Welcome />;
+  if (!state.onboarded || reviewWelcome)
+    return <Welcome onComplete={() => setReviewWelcome(false)} />;
   return (
     <View style={styles.outer}>
       <View

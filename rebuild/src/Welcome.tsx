@@ -1,23 +1,114 @@
 import React, { useEffect, useRef, useState } from "react";
-import { View, Pressable, ScrollView, StyleSheet } from "react-native";
+import {
+  View,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  useWindowDimensions,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { ToneImage } from "./ToneImage";
 import { useApp, presetNames } from "./State";
 import { Button, Cover, Label } from "./Scenes";
-export function Welcome() {
+export function Welcome({ onComplete }: { onComplete?: () => void }) {
+  const { width: initialWidth } = useWindowDimensions();
+  const [width, setWidth] = useState(initialWidth);
+  const [page, setPage] = useState(0);
+  const pageRef = useRef(0);
+  const targetRef = useRef<number | null>(null);
+  const pager = useRef<React.ComponentRef<typeof ScrollView>>(null);
+  const goTo = (next: number) => {
+    const bounded = Math.max(0, Math.min(3, next));
+    targetRef.current = bounded;
+    pageRef.current = bounded;
+    setPage(bounded);
+    pager.current?.scrollTo({ x: bounded * width, animated: true });
+  };
+  // Keep the same page on rotation/resizing; never advance on a timer.
+  useEffect(() => {
+    pager.current?.scrollTo({ x: pageRef.current * width, animated: false });
+  }, [width]);
+  return (
+    <View
+      style={{ flex: 1 }}
+      onLayout={(e) => setWidth(e.nativeEvent.layout.width)}
+    >
+      <ScrollView
+        ref={pager}
+        testID="welcome-pager"
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        bounces={false}
+        directionalLockEnabled
+        scrollEventThrottle={16}
+        style={{ flex: 1 }}
+        contentContainerStyle={{ height: "100%" }}
+        onTouchStart={() => {
+          targetRef.current = null;
+        }}
+        onScroll={(e) => {
+          if (targetRef.current !== null) {
+            if (
+              Math.abs(
+                e.nativeEvent.contentOffset.x - targetRef.current * width,
+              ) > 1
+            )
+              return;
+            targetRef.current = null;
+          }
+          const next = Math.max(
+            0,
+            Math.min(3, Math.round(e.nativeEvent.contentOffset.x / width)),
+          );
+          pageRef.current = next;
+          setPage(next);
+        }}
+      >
+        {[0, 1, 2, 3].map((index) => (
+          <View
+            key={index}
+            style={{ width, height: "100%" }}
+            accessibilityElementsHidden={page !== index}
+            importantForAccessibility={
+              page === index ? "auto" : "no-hide-descendants"
+            }
+            aria-hidden={page !== index}
+          >
+            <WelcomePage
+              step={index - 1}
+              setStep={(step) => goTo(step + 1)}
+              onComplete={onComplete}
+            />
+          </View>
+        ))}
+      </ScrollView>
+    </View>
+  );
+}
+function WelcomePage({
+  step,
+  setStep,
+  onComplete,
+}: {
+  step: number;
+  setStep: (step: number) => void;
+  onComplete?: () => void;
+}) {
   const { state, update } = useApp();
   const insets = useSafeAreaInsets();
-  const [step, setStep] = useState(-1);
-  const touchX = useRef(0);
+  const finish = () => {
+    update({ onboarded: true });
+    onComplete?.();
+  };
   const t = (ko: string, en: string) => (state.en ? en : ko);
-  useEffect(() => {
-    const timer = setTimeout(() => setStep((s) => (s === -1 ? 0 : s)), 1600);
-    return () => clearTimeout(timer);
-  }, []);
   if (step === -1)
     return (
-      <View
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel={t("온보딩 시작", "Start onboarding")}
+        onPress={() => setStep(0)}
         style={{
           flex: 1,
           paddingTop: insets.top,
@@ -44,17 +135,11 @@ export function Welcome() {
             )}
           </Label>
         </View>
-      </View>
+      </Pressable>
     );
   return (
     <View
       style={{ flex: 1, paddingTop: insets.top, paddingBottom: insets.bottom }}
-      onTouchStart={(e) => (touchX.current = e.nativeEvent.pageX)}
-      onTouchEnd={(e) => {
-        const dx = e.nativeEvent.pageX - touchX.current;
-        if (Math.abs(dx) > 65)
-          setStep((s) => Math.max(0, Math.min(2, s + (dx < 0 ? 1 : -1))));
-      }}
     >
       <ToneImage
         asset={
@@ -77,7 +162,7 @@ export function Welcome() {
       <View style={{ alignItems: "flex-end", padding: 12 }}>
         <Pressable
           accessibilityRole="button"
-          onPress={() => update({ onboarded: true })}
+          onPress={finish}
           style={{ minHeight: 44, justifyContent: "center", padding: 6 }}
         >
           <Label>{t("건너뛰기", "Skip")}</Label>
@@ -200,9 +285,7 @@ export function Welcome() {
         </View>
         <Button
           title={step === 2 ? t("시작하기", "Get started") : t("다음", "Next")}
-          onPress={() =>
-            step === 2 ? update({ onboarded: true }) : setStep(step + 1)
-          }
+          onPress={() => (step === 2 ? finish() : setStep(step + 1))}
         />
       </View>
     </View>

@@ -1,6 +1,9 @@
 import { test, expect, type Page } from "@playwright/test";
 async function home(page: Page) {
   await page.goto("/");
+  await page
+    .getByRole("button", { name: "Start onboarding", exact: true })
+    .click();
   await page.getByRole("button", { name: "Skip", exact: true }).click();
 }
 async function player(page: Page) {
@@ -12,10 +15,13 @@ test("first run onboarding, language and theme persist without repeating onboard
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/");
+  await page
+    .getByRole("button", { name: "Start onboarding", exact: true })
+    .click();
   await page.getByRole("button", { name: "Next", exact: true }).click();
   await expect(
     page.getByText("Take a moment to rest", { exact: false }),
-  ).toBeVisible();
+  ).toBeInViewport();
   await page.getByRole("button", { name: "Next", exact: true }).click();
   await page.getByRole("button", { name: "Get started", exact: true }).click();
   await page.getByRole("button", { name: "My", exact: true }).click();
