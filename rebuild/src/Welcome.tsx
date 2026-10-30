@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
+import { AnimatedSplash } from "./AnimatedSplash";
 import { ToneImage } from "./ToneImage";
 import { useApp, presetNames } from "./State";
 import { Button, Cover, Label } from "./Scenes";
@@ -77,6 +78,7 @@ export function Welcome({ onComplete }: { onComplete?: () => void }) {
             aria-hidden={page !== index}
           >
             <WelcomePage
+              active={page === index}
               step={index - 1}
               setStep={(step) => goTo(step + 1)}
               onComplete={onComplete}
@@ -88,10 +90,12 @@ export function Welcome({ onComplete }: { onComplete?: () => void }) {
   );
 }
 function WelcomePage({
+  active,
   step,
   setStep,
   onComplete,
 }: {
+  active: boolean;
   step: number;
   setStep: (step: number) => void;
   onComplete?: () => void;
@@ -115,10 +119,7 @@ function WelcomePage({
           paddingBottom: insets.bottom,
         }}
       >
-        <ToneImage
-          asset="backgrounds_covers_splash"
-          style={StyleSheet.absoluteFill}
-        />
+        <AnimatedSplash active={active} />
         <View
           style={{
             flex: 1,
