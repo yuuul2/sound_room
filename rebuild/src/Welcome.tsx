@@ -121,6 +121,7 @@ function WelcomePage({
       >
         <AnimatedSplash active={active} />
         <View
+          pointerEvents="none"
           style={{
             flex: 1,
             justifyContent: "center",

@@ -26,30 +26,32 @@ void main(){
  clouds*=1.0-moon;
  float water=smoothstep(horizon,horizon+0.018,p.y)*(1.0-foreground)*(1.0-boat);
  vec2 q=p;
- q.x+=clouds*0.003*(sin(time*0.17+p.y*5.0)-sin(p.y*5.0));
- q.y+=clouds*0.00065*(sin(time*0.21+p.x*4.0)-sin(p.x*4.0));
- q.x+=water*0.0015*(sin(p.y*190.0-time*0.6)-sin(p.y*190.0));
- q.y+=water*0.00055*(sin(p.x*38.0+p.y*90.0+time*0.5)-sin(p.x*38.0+p.y*90.0));
- float angle=sin(time*0.39)*0.010;
+ q.x+=clouds*0.018*(sin(time*0.17+p.y*5.0)-sin(p.y*5.0));
+ q.y+=clouds*0.0035*(sin(time*0.21+p.x*4.0)-sin(p.x*4.0));
+ q.x+=water*0.008*(sin(p.y*110.0-time*0.6)-sin(p.y*110.0));
+ q.y+=water*0.0022*(sin(p.x*18.0+p.y*45.0+time*0.5)-sin(p.x*18.0+p.y*45.0));
+ float angle=sin(time*0.65)*0.026;
  vec2 local=p-boatCenter;
  vec2 rotated=vec2(cos(angle)*local.x-sin(angle)*local.y*2.0,sin(angle)*local.x*0.5+cos(angle)*local.y);
- q+=boat*(rotated-local+vec2(0.0028*sin(time*0.25),0.00085*sin(time*0.43)));
+ q+=boat*(rotated-local+vec2(0.012*sin(time*0.42),0.0035*sin(time*0.7)));
  vec3 color=texture2D(picture,clamp(q,vec2(0.001),vec2(0.999))).rgb;
  float luminance=dot(color,vec3(0.213,0.715,0.072));
  color=mix(vec3(luminance),color,saturation);
- // Brightness stays tied to existing bright pixels, not drawn substitute shapes.
+ // Staggered halos surround the existing stars so white cores can visibly twinkle.
  float shimmer=0.0;
  for(int i=0;i<8;i++){
-  vec2 distance=(p-stars[i])/vec2(0.013,0.0065);
-  float sparkle=exp(-dot(distance,distance)*2.0);
-  float rhythm=0.5+0.5*sin(time*(0.55+float(i)*0.07)+float(i)*1.9);
-  shimmer+=sparkle*rhythm*rhythm*0.16;
+  vec2 distance=(p-stars[i])/vec2(0.022,0.011);
+  float halo=exp(-dot(distance,distance)*2.0);
+  float rhythm=pow(0.5+0.5*sin(time*(1.1+float(i)*0.13)+float(i)*2.399),3.0);
+  shimmer+=halo*rhythm*0.48;
  }
- shimmer*=smoothstep(0.35,0.8,luminance);
- float breath=moon*smoothstep(0.52,0.92,luminance)*(0.5+0.5*sin(time*0.44))*0.065;
- float reflection=exp(-pow((p.x-0.52)/0.095,2.0))*water*smoothstep(0.5,0.9,luminance);
- float glint=reflection*(0.5+0.5*sin(p.y*240.0-time*0.95+sin(p.x*80.0)))*0.105;
- gl_FragColor=vec4(clamp(color*(1.0+shimmer+breath+glint),0.0,1.0),1.0);
+ float moonHalo=exp(-dot((p-moonCenter)/vec2(0.14,0.085),(p-moonCenter)/vec2(0.14,0.085))*1.5);
+ float breath=moonHalo*(0.08+0.24*pow(0.5+0.5*sin(time*0.85),1.6));
+ float reflection=exp(-pow((p.x-0.52-0.012*sin(time*0.7+p.y*20.0))/0.12,2.0))*water;
+ float ripples=pow(0.5+0.5*sin(p.y*340.0-time*2.2+sin(p.x*95.0+time*0.5)),9.0);
+ float glint=reflection*ripples*(0.12+0.36*smoothstep(0.42,0.82,luminance));
+ vec3 light=vec3(1.0,0.92,0.82)*(shimmer+breath+glint);
+ gl_FragColor=vec4(clamp(color+(1.0-color)*light,0.0,1.0),1.0);
 }
 `;
 export const splashStars = {

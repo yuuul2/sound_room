@@ -3,9 +3,12 @@ import {
   AccessibilityInfo,
   AppState,
   Platform,
+  Pressable,
+  Text,
   StyleSheet,
   View,
 } from "react-native";
+import { SplashFallback } from "./SplashFallback";
 import { GLView, type ExpoWebGLRenderingContext } from "expo-gl";
 import { Asset } from "expo-asset";
 import { useApp } from "./State";
@@ -35,6 +38,8 @@ class MotionBoundary extends React.Component<
 export function AnimatedSplash({ active }: { active: boolean }) {
   const { state } = useApp();
   const [reduceMotion, setReduceMotion] = useState(true);
+  const [preferenceReady, setPreferenceReady] = useState(false);
+  const [requestedMotion, setRequestedMotion] = useState(false);
   const [foreground, setForeground] = useState(
     AppState.currentState !== "background",
   );
@@ -45,14 +50,20 @@ export function AnimatedSplash({ active }: { active: boolean }) {
     let live = true;
     AccessibilityInfo.isReduceMotionEnabled()
       .then((value) => {
-        if (live) setReduceMotion(value);
+        if (live) {
+          setReduceMotion(value);
+          setPreferenceReady(true);
+        }
       })
       .catch(() => {
-        /* Keep the still image when the preference cannot be read. */
+        if (live) setPreferenceReady(true);
       });
     const motion = AccessibilityInfo.addEventListener(
       "reduceMotionChanged",
-      setReduceMotion,
+      (value) => {
+        setReduceMotion(value);
+        setRequestedMotion(false);
+      },
     );
     const app = AppState.addEventListener("change", (value) =>
       setForeground(value === "active"),
@@ -62,28 +73,54 @@ export function AnimatedSplash({ active }: { active: boolean }) {
       document.addEventListener("visibilitychange", visibility);
     return () => {
       live = false;
-      motion.remove();
+      motion?.remove();
       app.remove();
       if (typeof document !== "undefined")
         document.removeEventListener("visibilitychange", visibility);
     };
   }, []);
   return (
-    <View
-      pointerEvents="none"
-      aria-hidden={true}
-      style={StyleSheet.absoluteFill}
-    >
+    <View pointerEvents="box-none" style={StyleSheet.absoluteFill}>
       <ToneImage
         asset="backgrounds_covers_splash"
         style={StyleSheet.absoluteFill}
       />
-      {!reduceMotion && (
+      {(!reduceMotion || requestedMotion) && (
         <MotionLayer
           key={state.dark ? "dark" : "light"}
           dark={state.dark}
           running={active && foreground && visible}
         />
+      )}
+      {active && preferenceReady && reduceMotion && !requestedMotion && (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={
+            state.en ? "Play background motion" : "배경 움직임 재생"
+          }
+          onPress={(event) => {
+            event.stopPropagation();
+            setRequestedMotion(true);
+          }}
+          style={{
+            position: "absolute",
+            bottom: 24,
+            right: 20,
+            minHeight: 44,
+            paddingHorizontal: 16,
+            justifyContent: "center",
+            borderRadius: 22,
+            backgroundColor: "#332d4b99",
+            borderWidth: 1,
+            borderColor: "#ffffff66",
+          }}
+        >
+          <Text
+            style={{ fontFamily: "Pretendard", fontSize: 13, color: "#fff" }}
+          >
+            {state.en ? "Play background motion" : "배경 움직임 재생"}
+          </Text>
+        </Pressable>
       )}
     </View>
   );
@@ -268,7 +305,7 @@ function MotionLayer({ dark, running }: { dark: boolean; running: boolean }) {
       fail();
     }
   };
-  if (failed) return null;
+  if (failed) return <SplashFallback dark={dark} running={running} />;
   return (
     <MotionBoundary onError={fail}>
       <View

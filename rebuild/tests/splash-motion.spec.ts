@@ -87,6 +87,13 @@ test("reduced motion keeps the still image and onboarding remains usable", async
   ).toBeVisible();
   await expect(page.locator("canvas")).toHaveCount(0);
   await page
+    .getByRole("button", { name: "Play background motion", exact: true })
+    .click();
+  await expect(page.getByTestId("splash-motion")).toHaveCSS("opacity", "1");
+  await expect(
+    page.getByRole("button", { name: "Start onboarding", exact: true }),
+  ).toBeInViewport();
+  await page
     .getByRole("button", { name: "Start onboarding", exact: true })
     .click();
   await page.getByRole("button", { name: "Skip", exact: true }).click();
@@ -94,7 +101,7 @@ test("reduced motion keeps the still image and onboarding remains usable", async
     page.getByRole("button", { name: "Open player", exact: true }),
   ).toBeVisible();
 });
-test("unavailable graphics falls back to the original image without blocking entry", async ({
+test("unavailable graphics animates the original image and pauses offscreen", async ({
   page,
 }) => {
   await page.addInitScript(() => {
@@ -112,9 +119,24 @@ test("unavailable graphics falls back to the original image without blocking ent
   await expect(
     page.getByRole("button", { name: "Start onboarding", exact: true }),
   ).toBeVisible();
+  const fallback = page.getByTestId("splash-motion-fallback");
+  await expect(fallback).toBeVisible();
+  const first = await fallback.screenshot();
+  await page.waitForTimeout(1200);
+  expect((await fallback.screenshot()).equals(first)).toBe(false);
   await page
     .getByRole("button", { name: "Start onboarding", exact: true })
     .click();
+  await page.waitForTimeout(500);
+  const time = await fallback.evaluate((svg) =>
+    (svg as unknown as SVGSVGElement).getCurrentTime(),
+  );
+  await page.waitForTimeout(400);
+  expect(
+    await fallback.evaluate((svg) =>
+      (svg as unknown as SVGSVGElement).getCurrentTime(),
+    ),
+  ).toBe(time);
   await page.getByRole("button", { name: "Skip", exact: true }).click();
   await expect(
     page.getByRole("button", { name: "Open player", exact: true }),
