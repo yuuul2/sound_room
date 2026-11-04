@@ -3,7 +3,7 @@ export const lightAssets = {
   backgrounds_covers_home_clouds: require("../assets/light/backgrounds_covers/home_clouds.png"),
   backgrounds_covers_mixer_cloud_gradient: require("../assets/light/backgrounds_covers/mixer_cloud_gradient.png"),
   backgrounds_covers_onboarding_arch_room: require("../assets/light/backgrounds_covers/onboarding_arch_room.png"),
-  backgrounds_covers_onboarding_mixing_room: require("../assets/light/backgrounds_covers/onboarding_mixing_room.png"),
+  backgrounds_covers_onboarding_mixing_room: require("../assets/revisions/20261104/onboarding_mixing_room_light_corrected.png"),
   backgrounds_covers_player_moon_ocean: require("../assets/light/backgrounds_covers/player_moon_ocean.png"),
   backgrounds_covers_preset_cafe: require("../assets/light/backgrounds_covers/preset_cafe.png"),
   backgrounds_covers_preset_forest: require("../assets/light/backgrounds_covers/preset_forest.png"),

@@ -490,5 +490,9 @@
   {
     "path": "rebuild/assets/revisions/20261104/onboarding_mixing_room_corrected.png",
     "sha256": "060e613b62842b9f1b56e2b21679b79a8c0cd8d5b131eee294162a27c900d888"
+  },
+  {
+    "path": "rebuild/assets/revisions/20261104/onboarding_mixing_room_light_corrected.png",
+    "sha256": "fa2643655320b78039d3eef7270f358310c1809030a0c807d102acbb95ca8a18"
   }
 ]
