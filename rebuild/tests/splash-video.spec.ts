@@ -36,10 +36,14 @@ for (const dark of [false, true]) {
       height: 1280,
       controls: false,
     });
+    expect(
+      await video.evaluate((el) => (el as HTMLVideoElement).duration),
+    ).toBeCloseTo(478 / 24, 1);
     const title = page.getByText("Sound Room", { exact: true });
     const box = await title.boundingBox();
     await video.evaluate((el) => {
-      (el as HTMLVideoElement).currentTime = 9.8;
+      const video = el as HTMLVideoElement;
+      video.currentTime = video.duration - 0.2;
     });
     await expect
       .poll(

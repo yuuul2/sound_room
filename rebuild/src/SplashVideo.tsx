@@ -9,7 +9,7 @@ export function SplashVideo({ active }: { active: boolean }) {
   const [firstFrame, setFirstFrame] = useState(false);
   const { running, needsPlay, request } = useBackgroundPlayback(active);
   const player = useVideoPlayer(
-    require("../video/splash-star.mp4"),
+    require("../video/splash-star-pingpong.mp4"),
     (player) => {
       player.loop = true;
       player.muted = true;

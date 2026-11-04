@@ -4,7 +4,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useApp } from "./State";
 import { SplashVideoTone } from "./SplashVideoTone";
 import { useBackgroundPlayback } from "./useBackgroundPlayback";
-const source = Asset.fromModule(require("../video/splash-star.mp4")).uri;
+const source = Asset.fromModule(require("../video/splash-star-pingpong.mp4")).uri;
 const poster = Asset.fromModule(require("../video/splash-star-poster.jpg")).uri;
 export function SplashVideo({ active }: { active: boolean }) {
   const ref = useRef<HTMLVideoElement>(null);
