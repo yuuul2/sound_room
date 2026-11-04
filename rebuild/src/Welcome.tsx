@@ -14,8 +14,9 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { SplashVideo } from "./SplashVideo";
 import { ToneImage } from "./ToneImage";
-import { useApp, presetNames } from "./State";
-import { Button, Cover, Label } from "./Scenes";
+import { useApp } from "./State";
+import { Button, Label } from "./Scenes";
+import { SavedAtmospheresPreview } from "./SavedAtmospheresPreview";
 export function Welcome({ onComplete }: { onComplete?: () => void }) {
   const { width } = useWindowDimensions();
   const { state } = useApp();
@@ -126,6 +127,7 @@ export function Welcome({ onComplete }: { onComplete?: () => void }) {
               style={{ flex: 1, opacity, transform: [{ translateX: textX }] }}
             >
               <WelcomePage
+                active={page === index}
                 step={index - 1}
                 setStep={(step) => goTo(step + 1)}
                 onComplete={onComplete}
@@ -204,11 +206,33 @@ function WelcomeBackground({
     </View>
   );
 }
+function OnboardingContent({
+  fixed,
+  children,
+}: {
+  fixed: boolean;
+  children: React.ReactNode;
+}) {
+  return fixed ? (
+    <View
+      testID="onboarding-fixed-content"
+      style={{ flex: 1, minHeight: 0, paddingHorizontal: 22 }}
+    >
+      {children}
+    </View>
+  ) : (
+    <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 22 }}>
+      {children}
+    </ScrollView>
+  );
+}
 function WelcomePage({
+  active,
   step,
   setStep,
   onComplete,
 }: {
+  active: boolean;
   step: number;
   setStep: (step: number) => void;
   onComplete?: () => void;
@@ -262,9 +286,7 @@ function WelcomePage({
           <Label>{t("건너뛰기", "Skip")}</Label>
         </Pressable>
       </View>
-      <ScrollView
-        contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 22 }}
-      >
+      <OnboardingContent fixed={step === 2}>
         <Label
           style={{
             fontSize: 26,
@@ -317,36 +339,8 @@ function WelcomePage({
           />
         )}
         {step === 1 && <View style={{ minHeight: 360, flex: 1 }} />}
-        {step === 2 && (
-          <View
-            style={{
-              borderRadius: 25,
-              padding: 12,
-              backgroundColor: state.dark ? "#39314399" : "#ffffff77",
-              marginTop: 24,
-              gap: 8,
-            }}
-          >
-            <Label style={{ marginBottom: 4 }}>
-              {t("내가 저장한 분위기", "Your saved atmospheres")}
-            </Label>
-            {presetNames.map((p, i) => (
-              <View key={i}>
-                <Cover index={i} style={{ height: 78, borderRadius: 16 }} />
-                <LinearGradient
-                  colors={["transparent", "#17142899"]}
-                  style={[
-                    StyleSheet.absoluteFill,
-                    { borderRadius: 16, justifyContent: "center", padding: 14 },
-                  ]}
-                >
-                  <Label style={{ color: "#fff" }}>{p[state.en ? 1 : 0]}</Label>
-                </LinearGradient>
-              </View>
-            ))}
-          </View>
-        )}
-      </ScrollView>
+        {step === 2 && <SavedAtmospheresPreview active={active} />}
+      </OnboardingContent>
       <View style={{ padding: 18, gap: 18 }}>
         <View
           style={{ flexDirection: "row", justifyContent: "center", gap: 12 }}
