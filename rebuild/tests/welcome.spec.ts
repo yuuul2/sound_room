@@ -24,25 +24,14 @@ async function swipe(page: Page, from: number, to: number, y = 400) {
   await cdp.detach();
 }
 async function atPage(page: Page, index: number) {
-  await expect
-    .poll(() =>
-      page
-        .getByTestId("welcome-pager")
-        .evaluate((el) => Math.round(el.scrollLeft / el.clientWidth)),
-    )
-    .toBe(index);
-  await expect
-    .poll(() =>
-      page
-        .getByTestId("welcome-pager")
-        .evaluate((el) =>
-          Math.abs(
-            el.scrollLeft / el.clientWidth -
-              Math.round(el.scrollLeft / el.clientWidth),
-          ),
-        ),
-    )
-    .toBeLessThan(0.01);
+  await expect(page.getByTestId(`welcome-scene-${index}`)).not.toHaveAttribute(
+    "aria-hidden",
+    "true",
+  );
+  await expect(page.getByTestId(`welcome-background-${index}`)).toHaveCSS(
+    "opacity",
+    "1",
+  );
 }
 test("start screen stays, and touch swipes connect all four pages in both directions", async ({
   page,
@@ -126,4 +115,51 @@ test("resize retains page; vertical gestures do not change onboarding; review pr
       localStorage.getItem("sound-room.confirmed-design.v1"),
     ),
   ).toBe(before);
+});
+
+test("partial swipe dissolves stationary backgrounds with only a short text movement", async ({
+  page,
+}) => {
+  await page.goto("/?welcome=1");
+  await expect(
+    page.getByRole("button", { name: "Start onboarding", exact: true }),
+  ).toBeVisible();
+  const title = page.getByText("Sound Room", { exact: true });
+  const before = await title.boundingBox();
+  const cdp = await page.context().newCDPSession(page);
+  await cdp.send("Input.dispatchTouchEvent", {
+    type: "touchStart",
+    touchPoints: [{ x: 300, y: 400 }],
+  });
+  for (const x of [280, 260, 240, 220, 200]) {
+    await cdp.send("Input.dispatchTouchEvent", {
+      type: "touchMove",
+      touchPoints: [{ x, y: 400 }],
+    });
+    await page.waitForTimeout(30);
+  }
+  const alpha = Number(
+    await page
+      .getByTestId("welcome-background-1")
+      .evaluate((el) => getComputedStyle(el).opacity),
+  );
+  expect(alpha).toBeGreaterThan(0.1);
+  expect(alpha).toBeLessThan(0.4);
+  for (const index of [0, 1]) {
+    const box = await page
+      .getByTestId(`welcome-background-${index}`)
+      .boundingBox();
+    expect(Math.abs(box!.x)).toBeLessThan(1);
+    expect(box!.width).toBe(390);
+  }
+  const during = await title.boundingBox();
+  expect(Math.abs(during!.x - before!.x)).toBeLessThanOrEqual(8);
+  await cdp.send("Input.dispatchTouchEvent", {
+    type: "touchEnd",
+    touchPoints: [],
+  });
+  await cdp.detach();
+  await atPage(page, 1);
+  await page.getByRole("button", { name: "Next", exact: true }).tap();
+  await atPage(page, 2);
 });

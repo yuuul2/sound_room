@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
   View,
+  Animated,
+  AccessibilityInfo,
+  PanResponder,
+  Easing,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -13,136 +17,172 @@ import { ToneImage } from "./ToneImage";
 import { useApp, presetNames } from "./State";
 import { Button, Cover, Label } from "./Scenes";
 export function Welcome({ onComplete }: { onComplete?: () => void }) {
-  const { width: initialWidth } = useWindowDimensions();
-  const [width, setWidth] = useState(initialWidth);
+  const { width } = useWindowDimensions();
+  const { state } = useApp();
   const [page, setPage] = useState(0);
   const pageRef = useRef(0);
-  const targetRef = useRef<number | null>(null);
-  const pager = useRef<React.ComponentRef<typeof ScrollView>>(null);
+  const progress = useRef(new Animated.Value(0)).current;
+  const position = useRef(0);
+  const dragStart = useRef(0);
+  const [reduceMotion, setReduceMotion] = useState(true);
+  useEffect(() => {
+    let live = true;
+    const id = progress.addListener(({ value }) => {
+      position.current = value;
+    });
+    AccessibilityInfo.isReduceMotionEnabled()
+      .then((value) => {
+        if (live) setReduceMotion(value);
+      })
+      .catch(() => {});
+    const listener = AccessibilityInfo.addEventListener(
+      "reduceMotionChanged",
+      setReduceMotion,
+    );
+    return () => {
+      live = false;
+      progress.removeListener(id);
+      listener?.remove();
+      progress.stopAnimation();
+    };
+  }, [progress]);
   const goTo = (next: number) => {
     const bounded = Math.max(0, Math.min(3, next));
-    targetRef.current = bounded;
-    pageRef.current = bounded;
-    setPage(bounded);
-    pager.current?.scrollTo({ x: bounded * width, animated: true });
+    progress.stopAnimation();
+    Animated.timing(progress, {
+      toValue: bounded,
+      duration: reduceMotion ? 0 : 420,
+      easing: Easing.bezier(0.22, 0.61, 0.36, 1),
+      useNativeDriver: false,
+    }).start(({ finished }) => {
+      if (finished) {
+        pageRef.current = bounded;
+        setPage(bounded);
+      }
+    });
   };
-  // Keep the same page on rotation/resizing; never advance on a timer.
-  useEffect(() => {
-    pager.current?.scrollTo({ x: pageRef.current * width, animated: false });
-  }, [width]);
+  const gestures = PanResponder.create({
+    onMoveShouldSetPanResponderCapture: (_, g) =>
+      Math.abs(g.dx) > 10 && Math.abs(g.dx) > Math.abs(g.dy) * 1.3,
+    onPanResponderGrant: () => {
+      progress.stopAnimation();
+      dragStart.current = position.current;
+    },
+    onPanResponderMove: (_, g) =>
+      progress.setValue(
+        Math.max(0, Math.min(3, dragStart.current - g.dx / width)),
+      ),
+    onPanResponderRelease: (_, g) => {
+      const direction = g.dx < 0 ? 1 : -1;
+      const moved = Math.abs(g.dx) > width * 0.18 || Math.abs(g.vx) > 0.45;
+      goTo(
+        moved
+          ? Math.round(dragStart.current) + direction
+          : Math.round(dragStart.current),
+      );
+    },
+    onPanResponderTerminate: () => goTo(pageRef.current),
+  });
   return (
     <View
-      style={{ flex: 1 }}
-      onLayout={(e) => setWidth(e.nativeEvent.layout.width)}
+      testID="welcome-pager"
+      {...gestures.panHandlers}
+      ref={(node) => {
+        const element = node as unknown as HTMLElement | null;
+        if (typeof element?.setAttribute === "function")
+          element.style.touchAction = "pan-y";
+      }}
+      style={{ flex: 1, overflow: "hidden" }}
     >
-      <ScrollView
-        ref={pager}
-        testID="welcome-pager"
-        horizontal
-        pagingEnabled
-        showsHorizontalScrollIndicator={false}
-        bounces={false}
-        directionalLockEnabled
-        scrollEventThrottle={16}
-        style={{ flex: 1 }}
-        contentContainerStyle={{ height: "100%" }}
-        onTouchStart={() => {
-          targetRef.current = null;
-        }}
-        onScroll={(e) => {
-          if (targetRef.current !== null) {
-            if (
-              Math.abs(
-                e.nativeEvent.contentOffset.x - targetRef.current * width,
-              ) > 1
-            )
-              return;
-            targetRef.current = null;
-          }
-          const next = Math.max(
-            0,
-            Math.min(3, Math.round(e.nativeEvent.contentOffset.x / width)),
-          );
-          pageRef.current = next;
-          setPage(next);
-        }}
-      >
-        {[0, 1, 2, 3].map((index) => (
+      {[0, 1, 2, 3].map((index) => {
+        const opacity = progress.interpolate({
+          inputRange: [index - 1, index, index + 1],
+          outputRange: [0, 1, 0],
+          extrapolate: "clamp",
+        });
+        const textX = progress.interpolate({
+          inputRange: [index - 1, index, index + 1],
+          outputRange: [reduceMotion ? 0 : 20, 0, reduceMotion ? 0 : -20],
+          extrapolate: "clamp",
+        });
+        const backgroundOpacity =
+          index === 0
+            ? 1
+            : progress.interpolate({
+                inputRange: [index - 1, index],
+                outputRange: [0, 1],
+                extrapolate: "clamp",
+              });
+        const layers = (
+          <>
+            <Animated.View
+              testID={`welcome-background-${index}`}
+              style={[StyleSheet.absoluteFill, { opacity: backgroundOpacity }]}
+            >
+              <WelcomeBackground step={index - 1} active={page === index} />
+            </Animated.View>
+            <Animated.View
+              pointerEvents={index === 0 ? "none" : "box-none"}
+              style={{ flex: 1, opacity, transform: [{ translateX: textX }] }}
+            >
+              <WelcomePage
+                step={index - 1}
+                setStep={(step) => goTo(step + 1)}
+                onComplete={onComplete}
+              />
+            </Animated.View>
+          </>
+        );
+        return (
           <View
             key={index}
-            style={{ width, height: "100%" }}
+            testID={`welcome-scene-${index}`}
+            ref={(node) => {
+              const element = node as unknown as HTMLElement | null;
+              if (typeof element?.setAttribute === "function") {
+                if (page === index) element.removeAttribute("inert");
+                else element.setAttribute("inert", "");
+              }
+            }}
+            pointerEvents={page === index ? "auto" : "none"}
             accessibilityElementsHidden={page !== index}
             importantForAccessibility={
               page === index ? "auto" : "no-hide-descendants"
             }
             aria-hidden={page !== index}
+            style={StyleSheet.absoluteFill}
           >
-            <WelcomePage
-              active={page === index}
-              step={index - 1}
-              setStep={(step) => goTo(step + 1)}
-              onComplete={onComplete}
-            />
+            {index === 0 ? (
+              <Pressable
+                style={{ flex: 1 }}
+                accessibilityRole="button"
+                accessibilityLabel={
+                  state.en ? "Start onboarding" : "온보딩 시작"
+                }
+                onPress={() => goTo(1)}
+              >
+                {layers}
+              </Pressable>
+            ) : (
+              layers
+            )}
           </View>
-        ))}
-      </ScrollView>
+        );
+      })}
     </View>
   );
 }
-function WelcomePage({
-  active,
+function WelcomeBackground({
   step,
-  setStep,
-  onComplete,
+  active,
 }: {
-  active: boolean;
   step: number;
-  setStep: (step: number) => void;
-  onComplete?: () => void;
+  active: boolean;
 }) {
-  const { state, update } = useApp();
-  const insets = useSafeAreaInsets();
-  const finish = () => {
-    update({ onboarded: true });
-    onComplete?.();
-  };
-  const t = (ko: string, en: string) => (state.en ? en : ko);
-  if (step === -1)
-    return (
-      <Pressable
-        accessibilityRole="button"
-        accessibilityLabel={t("온보딩 시작", "Start onboarding")}
-        onPress={() => setStep(0)}
-        style={{
-          flex: 1,
-          paddingTop: insets.top,
-          paddingBottom: insets.bottom,
-        }}
-      >
-        <SplashVideo active={active} />
-        <View
-          pointerEvents="none"
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-            gap: 12,
-          }}
-        >
-          <Label style={{ fontSize: 40, color: "#fff" }}>Sound Room</Label>
-          <Label style={{ color: "#fff" }}>
-            {t(
-              "소리로 만드는 나만의 작은 꿈속 공간",
-              "Your little dreamscape, made of sound",
-            )}
-          </Label>
-        </View>
-      </Pressable>
-    );
+  const { state } = useApp();
+  if (step === -1) return <SplashVideo active={active} />;
   return (
-    <View
-      style={{ flex: 1, paddingTop: insets.top, paddingBottom: insets.bottom }}
-    >
+    <View pointerEvents="none" style={StyleSheet.absoluteFill}>
       <ToneImage
         asset={
           step === 0
@@ -161,6 +201,58 @@ function WelcomePage({
         }
         style={StyleSheet.absoluteFill}
       />
+    </View>
+  );
+}
+function WelcomePage({
+  step,
+  setStep,
+  onComplete,
+}: {
+  step: number;
+  setStep: (step: number) => void;
+  onComplete?: () => void;
+}) {
+  const { state, update } = useApp();
+  const insets = useSafeAreaInsets();
+  const finish = () => {
+    update({ onboarded: true });
+    onComplete?.();
+  };
+  const t = (ko: string, en: string) => (state.en ? en : ko);
+  if (step === -1)
+    return (
+      <View
+        pointerEvents="none"
+        style={{
+          flex: 1,
+          paddingTop: insets.top,
+          paddingBottom: insets.bottom,
+        }}
+      >
+        <View
+          pointerEvents="none"
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 12,
+          }}
+        >
+          <Label style={{ fontSize: 40, color: "#fff" }}>Sound Room</Label>
+          <Label style={{ color: "#fff" }}>
+            {t(
+              "소리로 만드는 나만의 작은 꿈속 공간",
+              "Your little dreamscape, made of sound",
+            )}
+          </Label>
+        </View>
+      </View>
+    );
+  return (
+    <View
+      style={{ flex: 1, paddingTop: insets.top, paddingBottom: insets.bottom }}
+    >
       <View style={{ alignItems: "flex-end", padding: 12 }}>
         <Pressable
           accessibilityRole="button"
