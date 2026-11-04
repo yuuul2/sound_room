@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Asset } from "expo-asset";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useApp } from "./State";
+import { SplashVideoTone } from "./SplashVideoTone";
 import { useBackgroundPlayback } from "./useBackgroundPlayback";
 const source = Asset.fromModule(require("../video/splash-star.mp4")).uri;
 const poster = Asset.fromModule(require("../video/splash-star-poster.jpg")).uri;
@@ -68,6 +69,7 @@ export function SplashVideo({ active }: { active: boolean }) {
           }}
         />
       )}
+      <SplashVideoTone dark={state.dark} />
       {active && !failed && (needsPlay || blocked) && (
         <Pressable
           accessibilityRole="button"

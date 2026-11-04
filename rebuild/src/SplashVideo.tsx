@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { useVideoPlayer, VideoView } from "expo-video";
 import { useApp } from "./State";
+import { SplashVideoTone } from "./SplashVideoTone";
 import { useBackgroundPlayback } from "./useBackgroundPlayback";
 export function SplashVideo({ active }: { active: boolean }) {
   const { state } = useApp();
@@ -35,6 +36,7 @@ export function SplashVideo({ active }: { active: boolean }) {
         pointerEvents="none"
         style={[StyleSheet.absoluteFill, { opacity: firstFrame ? 1 : 0 }]}
       />
+      <SplashVideoTone dark={state.dark} />
       {needsPlay && (
         <Pressable
           accessibilityRole="button"
