@@ -486,5 +486,9 @@
   {
     "path": "rebuild/assets/light/ui_icons/wind.png",
     "sha256": "c30717fa92e42afdc27440b4a143c963efa34fa287a03a76ad06de6b840253d7"
+  },
+  {
+    "path": "rebuild/assets/revisions/20261104/onboarding_mixing_room_corrected.png",
+    "sha256": "060e613b62842b9f1b56e2b21679b79a8c0cd8d5b131eee294162a27c900d888"
   }
 ]
