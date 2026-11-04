@@ -38,7 +38,7 @@ for (const dark of [false, true]) {
     });
     expect(
       await video.evaluate((el) => (el as HTMLVideoElement).duration),
-    ).toBeCloseTo(478 / 24, 1);
+    ).toBeCloseTo(1339 / 60, 1);
     const title = page.getByText("Sound Room", { exact: true });
     const box = await title.boundingBox();
     await video.evaluate((el) => {
