@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
-import { AnimatedSplash } from "./AnimatedSplash";
+import { SplashVideo } from "./SplashVideo";
 import { ToneImage } from "./ToneImage";
 import { useApp, presetNames } from "./State";
 import { Button, Cover, Label } from "./Scenes";
@@ -119,7 +119,7 @@ function WelcomePage({
           paddingBottom: insets.bottom,
         }}
       >
-        <AnimatedSplash active={active} />
+        <SplashVideo active={active} />
         <View
           pointerEvents="none"
           style={{
