@@ -6,3 +6,5 @@ The user selected continuous forward playback on 2026-11-05. The app now uses th
 Source builder: rebuild/video/render-flow-loop.py.
 
 2026-11-05: Added archived constant-speed ping-pong clip as pingpong.mp4 for user-requested comparison. Default preview is forward → reverse (478 frames, 24fps); ?clip=forward selects current app playback. The eased previous variant remains selectable. Production app playback is unchanged.
+
+Added reverse-flow.mp4: 18-second forward/reverse comparison, original 24fps speed with 24-frame smoothstep opacity overlaps at both turns. No speed ramp or spatial warping. Default sample; ?clip=reverse-flow selects it explicitly. Existing CSS/tone and production app are unchanged.
