@@ -9,7 +9,7 @@ export function SplashVideo({ active }: { active: boolean }) {
   const [firstFrame, setFirstFrame] = useState(false);
   const { running, needsPlay, request } = useBackgroundPlayback(active);
   const player = useVideoPlayer(
-    require("../video/splash-star-smooth-loop.mp4"),
+    require("../video/splash-star-flow-loop.mp4"),
     (player) => {
       player.loop = true;
       player.muted = true;
@@ -23,7 +23,7 @@ export function SplashVideo({ active }: { active: boolean }) {
   return (
     <View pointerEvents="box-none" style={StyleSheet.absoluteFill}>
       <Image
-        source={require("../video/splash-star-poster.jpg")}
+        source={require("../video/splash-star-flow-poster.jpg")}
         resizeMode="cover"
         style={StyleSheet.absoluteFill}
       />

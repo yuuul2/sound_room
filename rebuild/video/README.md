@@ -11,3 +11,6 @@ The app now plays splash-star-pingpong.mp4: original frames 0…239 followed by 
 
 ## Eased direction changes (2026-11-05)
 The app now uses splash-star-smooth-loop.mp4, built by render-smooth-loop.py from the preserved forward-only source. Motion accelerates/decelerates over 1.2 seconds at each end and retains the original speed in the middle. Temporal frame blending (no optical-flow or spatial distortion) produces 60fps playback: 1339 frames / 22.316667 seconds. H.264 constant QP 18 and a final keyframe keep the loop boundary consistent. The original and previous loop remain archived.
+
+## Continuous forward playback selected (2026-11-05)
+The user chose forward-only looping. The app now uses splash-star-flow-loop.mp4 (9 seconds, 24fps), matching the reviewed forward sample. Original speed is retained; tail/head clips overlap for one second without reversing or slowing. splash-star-flow-poster.jpg matches the new first frame. The upload and all earlier loop versions remain preserved.
