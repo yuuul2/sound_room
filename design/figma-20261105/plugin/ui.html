@@ -1,0 +1,8 @@
+<!doctype html><meta charset="utf-8"><style>body{font:14px/1.65 sans-serif;margin:22px;color:#332d46}button{padding:12px;background:#7865bb;color:white;border:0;border-radius:10px}#status{white-space:pre-wrap}input{max-width:430px}</style>
+<h2>SOUND ROOM 편집용 화면 가져오기</h2><p>라이트 또는 다크 ZIP을 푼 폴더를 선택하세요. 원본 PNG와 글자를 분리해 <b>새 페이지</b>에 추가합니다. 기존 페이지는 수정하지 않습니다.</p><p>Pretendard Regular / SemiBold 설치가 필요합니다.</p><input id="folder" type="file" webkitdirectory multiple><p><button id="run" disabled>새 페이지에 가져오기</button></p><div id="status" role="status"></div>
+<script>
+const folder=document.querySelector('#folder'),run=document.querySelector('#run'),status=document.querySelector('#status');let files=[];
+folder.onchange=()=>{files=[...folder.files];run.disabled=!files.some(f=>f.name==='project.json');status.textContent=run.disabled?'project.json이 포함된 패키지 폴더를 선택해 주세요.':'선택한 파일 '+files.length+'개';};
+run.onclick=async()=>{run.disabled=true;try{const source=files.find(f=>f.name==='project.json');const project=JSON.parse(await source.text());const assets={};for(const [id,a] of Object.entries(project.assets)){const file=files.find(f=>f.webkitRelativePath.endsWith('/'+a.path));if(!file)throw Error('누락: '+a.path);assets[id]=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result.split(',')[1]);r.onerror=reject;r.readAsDataURL(file);});status.textContent='원본 확인 중: '+id;}parent.postMessage({pluginMessage:{type:'import',project,assets}},'*');status.textContent='Figma 레이어를 생성하고 있습니다…';}catch(e){status.textContent=e.message;run.disabled=false;}};
+onmessage=e=>{const m=e.data.pluginMessage;if(!m)return;status.textContent=m.text;run.disabled=false;};
+</script>
