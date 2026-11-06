@@ -17,3 +17,6 @@ The user chose forward-only looping. The app now uses splash-star-flow-loop.mp4 
 
 ## Dedicated light upload (2026-11-06)
 User-supplied light_video_star_splash.mp4 is preserved byte-for-byte as light_video_star_splash.original.mp4. render-light-flow-loop.py applies only the already-selected constant-speed forward tail/head overlap (216 frames at 24fps); no brightness, saturation, or color grading. splash-light-flow-poster.jpg matches its first frame. Light playback has no display tone overlay. Dark movie, poster, and existing dark overlay are unchanged. Muted playback remains enabled.
+
+## Dark mixing onboarding movie (2026-11-06)
+The user's 464×832, 24fps, 5.208333-second upload is preserved as onboarding-dark-mix.original.mp4. onboarding-dark-mix.mp4 copies the H.264 video stream with faststart (no re-encoding, grading, retiming, or reversal); its first frame is onboarding-dark-mix-poster.jpg. Only the first dark onboarding background uses this movie, muted and looped. Light artwork and all foreground elements remain unchanged. Off-page/background playback pauses; reduced motion and load failures retain the poster. The previous still-background grading is not applied to the supplied movie.

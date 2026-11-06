@@ -13,6 +13,7 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { SplashVideo } from "./SplashVideo";
+import { OnboardingMixVideo } from "./OnboardingMixVideo";
 import { ToneImage } from "./ToneImage";
 import { useApp } from "./State";
 import { Button, Label } from "./Scenes";
@@ -183,6 +184,7 @@ function WelcomeBackground({
 }) {
   const { state } = useApp();
   if (step === -1) return <SplashVideo active={active} />;
+  if (step === 0 && state.dark) return <OnboardingMixVideo active={active} />;
   return (
     <View pointerEvents="none" style={StyleSheet.absoluteFill}>
       <ToneImage
