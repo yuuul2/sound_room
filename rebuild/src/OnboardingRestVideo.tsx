@@ -12,9 +12,12 @@ export function OnboardingRestVideo({ active }: { active: boolean }) {
     player.audioMixingMode = "mixWithOthers";
   });
   useEffect(() => {
-    const subscription = player.addListener("statusChange", ({ status }) => setFailed(status === "error"));
+    const subscription = player.addListener("statusChange", ({ status }) => {
+      setFailed(status === "error");
+      if (status === "readyToPlay" && running) player.play();
+    });
     return () => subscription.remove();
-  }, [player]);
+  }, [player, running]);
   useEffect(() => {
     if (running) player.play(); else player.pause();
   }, [running, player]);

@@ -28,10 +28,19 @@ export function Welcome({ onComplete }: { onComplete?: () => void }) {
   const position = useRef(0);
   const dragStart = useRef(0);
   const [reduceMotion, setReduceMotion] = useState(true);
+  const [restVideoVisible, setRestVideoVisible] = useState(false);
+  const restVideoVisibleRef = useRef(false);
   useEffect(() => {
     let live = true;
     const id = progress.addListener(({ value }) => {
       position.current = value;
+      // Start the second movie as it fades into view, rather than waiting
+      // for the 420ms foreground transition to finish. Stop on either side.
+      const visible = value > 1 && value < 3;
+      if (visible !== restVideoVisibleRef.current) {
+        restVideoVisibleRef.current = visible;
+        setRestVideoVisible(visible);
+      }
     });
     AccessibilityInfo.isReduceMotionEnabled()
       .then((value) => {
@@ -122,7 +131,7 @@ export function Welcome({ onComplete }: { onComplete?: () => void }) {
               testID={`welcome-background-${index}`}
               style={[StyleSheet.absoluteFill, { opacity: backgroundOpacity }]}
             >
-              <WelcomeBackground step={index - 1} active={page === index} />
+              <WelcomeBackground step={index - 1} active={index === 2 ? restVideoVisible : page === index} />
             </Animated.View>
             <Animated.View
               pointerEvents={index === 0 ? "none" : "box-none"}
