@@ -35,3 +35,41 @@ test('reduced motion and failed movie preserve the first frame and navigation',a
   await page.getByRole('button',{name:'Next',exact:true}).click();
   await expect(page.getByTestId('welcome-scene-2')).not.toHaveAttribute('aria-hidden','true');
 });
+test('dark second onboarding uses its own movie and pauses on both adjacent pages',async({page})=>{
+  await init(page);
+  const first=page.getByTestId('onboarding-mix-video');
+  const second=page.getByTestId('onboarding-rest-video');
+  await expect.poll(()=>first.evaluate(v=>(v as HTMLVideoElement).currentTime)).toBeGreaterThan(.2);
+  expect(await second.evaluate(v=>(v as HTMLVideoElement).paused)).toBe(true);
+  await page.getByRole('button',{name:'Next',exact:true}).click();
+  await expect.poll(()=>second.evaluate(v=>(v as HTMLVideoElement).currentTime)).toBeGreaterThan(.2);
+  expect(await second.evaluate(v=>{const m=v as HTMLVideoElement;return [m.muted,m.loop,m.playsInline,m.videoWidth,m.videoHeight]})).toEqual([true,true,true,448,880]);
+  await expect.poll(()=>first.evaluate(v=>(v as HTMLVideoElement).paused)).toBe(true);
+  await page.getByRole('button',{name:'Next',exact:true}).click();
+  await expect.poll(()=>second.evaluate(v=>(v as HTMLVideoElement).paused)).toBe(true);
+  await page.getByRole('button',{name:'Onboarding 2',exact:true}).click();
+  await expect.poll(()=>second.evaluate(v=>(v as HTMLVideoElement).paused)).toBe(false);
+  await page.getByRole('button',{name:'Onboarding 1',exact:true}).click();
+  await expect.poll(()=>second.evaluate(v=>(v as HTMLVideoElement).paused)).toBe(true);
+});
+test('light second onboarding keeps its original image',async({page})=>{
+  await init(page,false);
+  await page.getByRole('button',{name:'Next',exact:true}).click();
+  await expect(page.getByTestId('onboarding-rest-video')).toHaveCount(0);
+  await expect(page.getByTestId('welcome-background-2').locator('image')).toHaveAttribute('href',/onboarding_arch_room/);
+});
+test('dark second movie keeps a poster for reduced motion or loading errors',async({page})=>{
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await init(page);
+  await page.getByRole('button',{name:'Next',exact:true}).click();
+  const video=page.getByTestId('onboarding-rest-video');
+  expect(await video.evaluate(v=>(v as HTMLVideoElement).paused)).toBe(true);
+  await page.route('**/*onboarding-dark-rest*.mp4*',r=>r.abort());
+  await page.reload();
+  await page.getByRole('button',{name:'Start onboarding',exact:true}).click();
+  await page.getByRole('button',{name:'Next',exact:true}).click();
+  await expect(video).toHaveCount(0);
+  await expect.poll(()=>page.locator('img[src*="onboarding-dark-rest-poster"]').evaluate(e=>(e as HTMLImageElement).naturalWidth)).toBe(448);
+  await page.getByRole('button',{name:'Next',exact:true}).click();
+  await expect(page.getByRole('button',{name:'Get started',exact:true})).toBeVisible();
+});

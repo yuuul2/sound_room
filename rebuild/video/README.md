@@ -20,3 +20,6 @@ User-supplied light_video_star_splash.mp4 is preserved byte-for-byte as light_vi
 
 ## Dark mixing onboarding movie (2026-11-06)
 The user's 464×832, 24fps, 5.208333-second upload is preserved as onboarding-dark-mix.original.mp4. onboarding-dark-mix.mp4 copies the H.264 video stream with faststart (no re-encoding, grading, retiming, or reversal); its first frame is onboarding-dark-mix-poster.jpg. Only the first dark onboarding background uses this movie, muted and looped. Light artwork and all foreground elements remain unchanged. Off-page/background playback pauses; reduced motion and load failures retain the poster. The previous still-background grading is not applied to the supplied movie.
+
+## Dark rest onboarding movie (2026-11-06)
+The user-uploaded dark_온보딩_두번째1.mp4 is preserved as onboarding-dark-rest.original.mp4 (448×880, 24fps, 5.208333 seconds). onboarding-dark-rest.mp4 copies the silent video stream with faststart; no re-encoding, color overlay, speed change, or reversal. Only the second dark onboarding uses it. The matching poster covers reduced motion and load failures. First onboarding movie, both splash movies, light artwork, and foreground UI are unchanged.
