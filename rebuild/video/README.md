@@ -14,3 +14,6 @@ The app now uses splash-star-smooth-loop.mp4, built by render-smooth-loop.py fro
 
 ## Continuous forward playback selected (2026-11-05)
 The user chose forward-only looping. The app now uses splash-star-flow-loop.mp4 (9 seconds, 24fps), matching the reviewed forward sample. Original speed is retained; tail/head clips overlap for one second without reversing or slowing. splash-star-flow-poster.jpg matches the new first frame. The upload and all earlier loop versions remain preserved.
+
+## Dedicated light upload (2026-11-06)
+User-supplied light_video_star_splash.mp4 is preserved byte-for-byte as light_video_star_splash.original.mp4. render-light-flow-loop.py applies only the already-selected constant-speed forward tail/head overlap (216 frames at 24fps); no brightness, saturation, or color grading. splash-light-flow-poster.jpg matches its first frame. Light playback has no display tone overlay. Dark movie, poster, and existing dark overlay are unchanged. Muted playback remains enabled.

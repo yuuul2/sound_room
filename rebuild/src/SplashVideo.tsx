@@ -6,10 +6,14 @@ import { SplashVideoTone } from "./SplashVideoTone";
 import { useBackgroundPlayback } from "./useBackgroundPlayback";
 export function SplashVideo({ active }: { active: boolean }) {
   const { state } = useApp();
+  return <SplashVideoContent key={state.dark ? "dark" : "light"} active={active} />;
+}
+function SplashVideoContent({ active }: { active: boolean }) {
+  const { state } = useApp();
   const [firstFrame, setFirstFrame] = useState(false);
   const { running, needsPlay, request } = useBackgroundPlayback(active);
   const player = useVideoPlayer(
-    require("../video/splash-star-flow-loop.mp4"),
+    state.dark ? require("../video/splash-star-flow-loop.mp4") : require("../video/splash-light-flow-loop.mp4"),
     (player) => {
       player.loop = true;
       player.muted = true;
@@ -23,7 +27,7 @@ export function SplashVideo({ active }: { active: boolean }) {
   return (
     <View pointerEvents="box-none" style={StyleSheet.absoluteFill}>
       <Image
-        source={require("../video/splash-star-flow-poster.jpg")}
+        source={state.dark ? require("../video/splash-star-flow-poster.jpg") : require("../video/splash-light-flow-poster.jpg")}
         resizeMode="cover"
         style={StyleSheet.absoluteFill}
       />

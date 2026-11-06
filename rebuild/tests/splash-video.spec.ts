@@ -39,6 +39,8 @@ for (const dark of [false, true]) {
     expect(
       await video.evaluate((el) => (el as HTMLVideoElement).duration),
     ).toBeCloseTo(9, 1);
+    await expect(video).toHaveAttribute("src", new RegExp(dark ? "splash-star-flow-loop" : "splash-light-flow-loop"));
+    await expect(page.getByTestId("splash-video-tone")).toHaveCount(dark ? 1 : 0);
     const title = page.getByText("Sound Room", { exact: true });
     const box = await title.boundingBox();
     await video.evaluate((el) => {
@@ -102,7 +104,7 @@ test("video network failure keeps the poster and onboarding usable", async ({
   await expect
     .poll(() =>
       page
-        .locator('img[src*="splash-star-flow-poster"]')
+        .locator('img[src*="splash-light-flow-poster"]')
         .evaluate((el) => (el as HTMLImageElement).naturalWidth),
     )
     .toBe(720);

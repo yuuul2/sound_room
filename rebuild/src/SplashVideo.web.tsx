@@ -4,11 +4,19 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useApp } from "./State";
 import { SplashVideoTone } from "./SplashVideoTone";
 import { useBackgroundPlayback } from "./useBackgroundPlayback";
-const source = Asset.fromModule(require("../video/splash-star-flow-loop.mp4")).uri;
-const poster = Asset.fromModule(require("../video/splash-star-flow-poster.jpg")).uri;
+const darkSource = Asset.fromModule(require("../video/splash-star-flow-loop.mp4")).uri;
+const darkPoster = Asset.fromModule(require("../video/splash-star-flow-poster.jpg")).uri;
+const lightSource = Asset.fromModule(require("../video/splash-light-flow-loop.mp4")).uri;
+const lightPoster = Asset.fromModule(require("../video/splash-light-flow-poster.jpg")).uri;
 export function SplashVideo({ active }: { active: boolean }) {
+  const { state } = useApp();
+  return <SplashVideoContent key={state.dark ? "dark" : "light"} active={active} />;
+}
+function SplashVideoContent({ active }: { active: boolean }) {
   const ref = useRef<HTMLVideoElement>(null);
   const { state } = useApp();
+  const source = state.dark ? darkSource : lightSource;
+  const poster = state.dark ? darkPoster : lightPoster;
   const { running, needsPlay, request } = useBackgroundPlayback(active);
   const [blocked, setBlocked] = useState(false);
   const [failed, setFailed] = useState(false);
